@@ -1,0 +1,19 @@
+---
+title: "cleaning dataset 2"
+output: html_document
+---
+
+```
+IPEDS_data$`Religious affiliation`<- NULL
+IPEDS_data$`Highest degree offered`<- NULL
+IPEDS_data$`Offers Less than one year certificate`<- NULL
+IPEDS_data$`Offers One but less than two years certificate` <- NULL
+IPEDS_data$`Offers Associate's degree`<- NULL
+IPEDS_data$`Offers Bachelor's degree`<- NULL
+IPEDS_data$`Offers Two but less than 4 years certificate`<- NULL
+IPEDS_data$`Offers Postbaccalaureate certificate`<- NULL
+IPEDS_data$`Offers Master's degree`<- NULL
+IPEDS_data$`Offers Post-master's certificate <- NULL
+
+```
+
