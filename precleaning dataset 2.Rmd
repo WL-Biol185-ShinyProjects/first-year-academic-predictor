@@ -145,3 +145,28 @@ IPEDS_data$`Graduation rate - Bachelor degree within 5 years, total` <- NULL
 IPEDS_data$`Graduation rate - Bachelor degree within 6 years, total`<- NULL
 IPEDS_data$`Number of first-time undergraduates - in-state` <- NULL
 IPEDS_data$`Percent of first-time undergraduates - residence unknown` <- NULL
+IPEDS_data$`Number of first-time undergraduates - residence unknown`<- NULL
+IPEDS_data$`Percent of first-time undergraduates - out-of-state`<- NULL
+IPEDS_data$`Percent of first-time undergraduates - foreign countries`<- NULL
+IPEDS_data$`Number of first-time undergraduates - out-of-state` <- NULL
+IPEDS_data$`Percent of first-time undergraduates - in-state`<- NULL
+IPEDS_data$`Percent of graduate enrollment that are Race/ethnicity unknown`<- NULL
+IPEDS_data$`Percent of graduate enrollment that are women`<-NULL
+IPEDS_data$`Percent of graduate enrollment that are Asian/Native Hawaiian/Pacific Islander` <-NULL
+IPEDS_data$`Percent of graduate enrollment that are two or more races`<- NULL
+IPEDS_data$`Percent of graduate enrollment that are White`<-NULL
+IPEDS_data$`Percent of graduate enrollment that are Nonresident Alien` <- NULL
+IPEDS_data$`Percent of graduate enrollment that are Native Hawaiian or Other Pacific Islander`<- NULL
+IPEDS_data$`Percent of graduate enrollment that are Hispanic/Latino`<-NULL
+IPEDS_data$`Percent of graduate enrollment that are Black or African American`<- NULL
+IPEDS_data$`Percent of graduate enrollment that are Asian`<-NULL
+IPEDS_data$`Percent of graduate enrollment that are American Indian or Alaska Native`<- NULL
+IPEDS_data$`Percent of undergraduate enrollment that are women`<- NULL
+IPEDS_data$`Percent of undergraduate enrollment that are Asian/Native Hawaiian/Pacific Islander` <- NULL
+IPEDS_data$`Percent of undergraduate enrollment that are Nonresident Alien`<- NULL
+IPEDS_data$`Percent of undergraduate enrollment that are Race/ethnicity unknown`<- NULL
+IPEDS_data$`Percent of undergraduate enrollment that are two or more races`<- NULL
+IPEDS_data$`Percent of undergraduate enrollment that are White`<- NULL
+IPEDS_data$`Percent of undergraduate enrollment that are Hispanic/Latino`<-NULL
+IPEDS_data$`Percent of undergraduate enrollment that are Native Hawaiian or Other Pacific Islander`<-NULL
+IPEDS_data$`Percent of undergraduate enrollment that are Black or African American`<- NULL
