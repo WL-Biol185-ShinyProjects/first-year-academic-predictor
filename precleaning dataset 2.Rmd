@@ -17,7 +17,24 @@ IPEDS_data$`Offers Post-master's certificate <- NULL
 IPEDS_data$`Offers Doctor's degree - research/scholarship` <- NULL
 IPEDS_data$`Offers Doctor's degree - professional practice`<- NULL
 IPEDS_data$`Offers Doctor's degree - other`<- NULL
-
+IPEDS_data$`Offers Post-master's certificate`<- NULL
+IPEDS_data$`Offers Doctor's degree - research/scholarship`<- NULL
+IPEDS_data$`Offers Other degree`<- NULL
+IPEDS_data$`Percent of freshmen submitting ACT scores`<- NULL
+IPEDS_data$`ACT Composite 25th percentile score`<- NULL
+IPEDS_data$`ACT Composite 75th percentile score`<- NULL
+IPEDS_data$`Estimated enrollment, full time`<- NULL
+IPEDS_data$`Estimated enrollment, part time`<- NULL
+IPEDS_data$`Estimated enrollment, total`<- NULL
+IPEDS_data$`Estimated freshman enrollment, full time`<- NULL
+IPEDS_data$`Estimated freshman enrollment, part time`<- NULL
+IPEDS_data$`Estimated freshman undergraduate enrollment, total`<- NULL
+IPEDS_data$`Estimated graduate enrollment, full time`<- NULL
+IPEDS_data$`Estimated graduate enrollment, part time`<- NULL
+IPEDS_data$`Estimated graduate enrollment, total`<- NULL
+IPEDS_data$`Estimated undergraduate enrollment, full time`<- NULL
+IPEDS_data$`Estimated undergraduate enrollment, part time`<- NULL
+IPEDS_data$`Estimated undergraduate enrollment, total`<- NULL
 
 
 
@@ -76,7 +93,7 @@ End of Zoe's cleaning
 
 ``
 
-
+ 
 
 IPEDS_data$`Endowment assets (year end) per FTE enrollment (FASB)`<- NULL
 IPEDS_data$`Endowment assets (year end) per FTE enrollment (GASB)`<- NULL
