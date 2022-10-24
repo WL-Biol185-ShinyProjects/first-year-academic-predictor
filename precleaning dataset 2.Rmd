@@ -70,7 +70,59 @@ IPEDS_data$`Tuition and fees, 2010-11`<- NULL
 IPEDS_data$`Tuition and fees, 2011-12`<- NULL
 IPEDS_data$`Tuition and fees, 2012-13`<- NULL
 IPEDS_data$`Tuition and fees, 2013-14`<- NULL
- 
+IPEDS_data$`Endowment assets (year end) per FTE enrollment (FASB)`<- NULL
+IPEDS_data$`Endowment assets (year end) per FTE enrollment (GASB)`<- NULL
+IPEDS_data$`Percent of freshmen receiving other loan aid`<- NULL
+IPEDS_data$`Percent of freshmen receiving federal student loans`<- NULL
+IPEDS_data$`Percent of freshmen receiving student loan aid`<- NULL
+IPEDS_data$`Percent of freshmen receiving institutional grant aid`<- NULL
+IPEDS_data$`Percent of freshmen receiving state/local grant aid`<- NULL
+IPEDS_data$`Percent of freshmen receiving other federal grant aid`<- NULL
+IPEDS_data$`Percent of freshmen receiving Pell grants`<- NULL
+IPEDS_data$`Percent of freshmen receiving  federal grant aid` <- NULL
+IPEDS_data$`Percent of freshmen receiving federal, state, local or institutional grant aid` <- NULL
+IPEDS_data$`Percent of freshmen receiving any financial aid` <- NULL
+IPEDS_data$`Graduation rate - Bachelor degree within 5 years, total` <- NULL
+IPEDS_data$`Graduation rate - Bachelor degree within 6 years, total`<- NULL
+IPEDS_data$`Number of first-time undergraduates - in-state` <- NULL
+IPEDS_data$`Percent of first-time undergraduates - residence unknown` <- NULL
+IPEDS_data$`Total price for in-state students living on campus 2013-14`<- NULL
+IPEDS_data$`Total price for out-of-state students living on campus 2013-14`<- NULL
+IPEDS_data$`State abbreviation`<- NULL
+IPEDS_data$`FIPS state code`<- NULL
+IPEDS_data$`Geographic region`<- NULL
+IPEDS_data$`Sector of institution`<- NULL
+IPEDS_data$`Level of institution`<- NULL
+IPEDS_data$`Control of institution`<- NULL
+IPEDS_data$`Historically Black College or University`<- NULL
+IPEDS_data$`Degree of urbanization (Urban-centric locale)`<- NULL
+IPEDS_data$`Carnegie Classification 2010: Basic`<- NULL
+IPEDS_data$`Percent of graduate enrollment that are Black or African American`<- NULL
+IPEDS_data$`Percent of graduate enrollment that are American Indian or Alaska Native`<- NULL
+IPEDS_data$`Percent of graduate enrollment that are Asian`<- NULL
+IPEDS_data$`Percent of graduate enrollment that are Asian/Native Hawaiian/Pacific Islander`<- NULL
+IPEDS_data$`Percent of graduate enrollment that are Hispanic/Latino`<- NULL
+IPEDS_data$`Percent of graduate enrollment that are Native Hawaiian or Other Pacific Islander`<- NULL
+IPEDS_data$`Percent of graduate enrollment that are Nonresident Alien`<- NULL
+IPEDS_data$`Percent of graduate enrollment that are Race/ethnicity unknown`<- NULL
+IPEDS_data$`Percent of graduate enrollment that are White`<- NULL
+IPEDS_data$`Percent of total enrollment that are American Indian or Alaska Native`<-NULL
+IPEDS_data$`Percent of total enrollment that are Black or African American`<- NULL
+IPEDS_data$`Percent of total enrollment that are White`<- NULL
+IPEDS_data$`Percent of undergraduate enrollment that are Hispanic/Latino`<- NULL
+IPEDS_data$`Percent of undergraduate enrollment that are Black or African American`<- NULL
+IPEDS_data$`Percent of total enrollment that are Native Hawaiian or Other Pacific Islander`<- NULL
+IPEDS_data$`Percent of undergraduate enrollment that are American Indian or Alaska Native`<- NULL
+IPEDS_data$`Percent of undergraduate enrollment that are Asian/Native Hawaiian/Pacific Islander`< NULL
+IPEDS_data$`Percent of undergraduate enrollment that are Asian`<- NULL
+IPEDS_data$`Percent of undergraduate enrollment that are Native Hawaiian or Other Pacific Islander`<- NULL
+IPEDS_data$`Percent of undergraduate enrollment that are White`<- NULL
+IPEDS_data$`Percent of total enrollment that are Asian`<- NULL
+IPEDS_data$`Percent of total enrollment that are Asian/Native Hawaiian/Pacific Islander`<- NULL
+IPEDS_data$`Percent of undergraduate enrollment that are Asian/Native Hawaiian/Pacific Islander`<- NULL
+IPEDS_data$`Percent of total enrollment that are Hispanic/Latino`<- NULL
+IPEDS_data$`Percent of undergraduate enrollment that are Nonresident Alien`<- NULL
+IPEDS_data$`Percent of total enrollment that are Nonresident Alien`<- NULL
 
 
 
