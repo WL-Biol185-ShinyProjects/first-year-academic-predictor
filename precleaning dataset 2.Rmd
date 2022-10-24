@@ -13,7 +13,7 @@ IPEDS_data$`Offers Bachelor's degree`<- NULL
 IPEDS_data$`Offers Two but less than 4 years certificate`<- NULL
 IPEDS_data$`Offers Postbaccalaureate certificate`<- NULL
 IPEDS_data$`Offers Master's degree`<- NULL
-IPEDS_data$`Offers Post-master's certificate <- NULLIPE
+IPEDS_data$`Offers Post-master's certificate <- NULL
 IPEDS_data$`Offers Doctor's degree - research/scholarship` <- NULL
 IPEDS_data$`Offers Doctor's degree - professional practice`<- NULL
 IPEDS_data$`Offers Doctor's degree - other`<- NULL
