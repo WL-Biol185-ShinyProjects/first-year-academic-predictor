@@ -70,7 +70,7 @@ IPEDS_data$`Tuition and fees, 2010-11`<- NULL
 IPEDS_data$`Tuition and fees, 2011-12`<- NULL
 IPEDS_data$`Tuition and fees, 2012-13`<- NULL
 IPEDS_data$`Tuition and fees, 2013-14`<- NULL
-
+ 
 
 
 
