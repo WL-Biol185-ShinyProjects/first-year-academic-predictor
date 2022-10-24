@@ -35,7 +35,7 @@ IPEDS_data$`Estimated graduate enrollment, total`<- NULL
 IPEDS_data$`Estimated undergraduate enrollment, full time`<- NULL
 IPEDS_data$`Estimated undergraduate enrollment, part time`<- NULL
 IPEDS_data$`Estimated undergraduate enrollment, total`<- NULL
-
+ 
 
 
 
