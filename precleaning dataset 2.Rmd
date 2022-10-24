@@ -32,7 +32,7 @@ IPEDS_data$`Estimated freshman undergraduate enrollment, total`<- NULL
 IPEDS_data$`Estimated graduate enrollment, full time`<- NULL
 IPEDS_data$`Estimated graduate enrollment, part time`<- NULL
 IPEDS_data$`Estimated graduate enrollment, total`<- NULL
-IPEDS_data$`Estimated undergraduate enrollment, full time`<- NULL
+IPEDS_data$`Estimated undergraduate enrollment, full time`<- NULL 
 IPEDS_data$`Estimated undergraduate enrollment, part time`<- NULL
 IPEDS_data$`Estimated undergraduate enrollment, total`<- NULL
 IPEDS_data$`Associate's degrees awarded`<- NULL
