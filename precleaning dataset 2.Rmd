@@ -138,5 +138,10 @@ IPEDS_data$`Percent of freshmen receiving institutional grant aid`<- NULL
 IPEDS_data$`Percent of freshmen receiving state/local grant aid`<- NULL
 IPEDS_data$`Percent of freshmen receiving other federal grant aid`<- NULL
 IPEDS_data$`Percent of freshmen receiving Pell grants`<- NULL
-IPEDS_data$`Percent of freshmen receiving federal grant aid`<- NULL
-IPEDS_data$`Percent of freshmen receiving federal grant aid`<- NULL
+IPEDS_data$`Percent of freshmen receiving  federal grant aid` <- NULL
+IPEDS_data$`Percent of freshmen receiving federal, state, local or institutional grant aid` <- NULL
+IPEDS_data$`Percent of freshmen receiving any financial aid` <- NULL
+IPEDS_data$`Graduation rate - Bachelor degree within 5 years, total` <- NULL
+IPEDS_data$`Graduation rate - Bachelor degree within 6 years, total`<- NULL
+IPEDS_data$`Number of first-time undergraduates - in-state` <- NULL
+IPEDS_data$`Percent of first-time undergraduates - residence unknown` <- NULL
