@@ -14,4 +14,5 @@ function(input, output, session) {
     output$compareoutput4 <- renderPrint(input$compareinput4)
     output$compareoutput5 <- renderPrint(input$compareinput5)
   
+  
 }

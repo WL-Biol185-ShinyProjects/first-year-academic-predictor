@@ -12,16 +12,16 @@ ui <- fluidPage(
     sidebarPanel(
       
       
-      # Input: Slider 
+      # Input: SAT Slider 
       sliderInput("n",
                   "SAT Score",
-                  value = 500,
+                  value = 1250,
                   min = 0,
                   max = 1600, 
                   step = 10),
       
       
-      # Input: Slider 
+      # Input: GPA Slider 
       sliderInput("n",
                   "GPA (unweighted)",
                   value = 3.5,
@@ -40,8 +40,8 @@ ui <- fluidPage(
                   tabPanel("Search by Your Stats"),
                   
                   tabPanel("Search by Colleges", 
-                           verbatimTextOutput('schooloutput'), 
-                           selectInput('schoolinput', 'Search by School', IPEDS_data$Name, multiple=TRUE, selectize=TRUE)
+                           selectInput('schoolinput', 'Search by School', IPEDS_data$Name, multiple=TRUE, selectize=TRUE),
+                           verbatimTextOutput('schooloutput')
                            ),
                   
                   tabPanel("Compare Colleges", 
