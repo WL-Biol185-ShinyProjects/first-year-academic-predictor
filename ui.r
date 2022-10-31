@@ -42,7 +42,7 @@ ui <- fluidPage(
                   tabPanel("Search by Colleges", 
                            selectInput('schoolinput', 'Search by School', IPEDS_data$Name, multiple=TRUE, selectize=TRUE),
                            DT::dataTableOutput("schooloutput",
-                                               width = "50%",
+                                               width = "75%",
                                                height = "auto"), 
                            ),
                   
