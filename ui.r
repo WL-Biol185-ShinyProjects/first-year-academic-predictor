@@ -41,7 +41,9 @@ ui <- fluidPage(
                   
                   tabPanel("Search by Colleges", 
                            selectInput('schoolinput', 'Search by School', IPEDS_data$Name, multiple=TRUE, selectize=TRUE),
-                           verbatimTextOutput('schooloutput')
+                           DT::dataTableOutput("schooloutput",
+                                               width = "50%",
+                                               height = "auto"), 
                            ),
                   
                   tabPanel("Compare Colleges", 
