@@ -7,7 +7,7 @@ function(input, output, session) {
   #Stats 
   #School 
     output$schooloutput <-  DT::renderDataTable({
-      IPEDS_data
+      search_by_df
     }, options = list(pageLength = 1))
   #Compare
     output$compareoutput1 <- renderPrint(input$compareinput1)
