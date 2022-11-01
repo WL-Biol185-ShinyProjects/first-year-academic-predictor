@@ -6,7 +6,9 @@ function(input, output, session) {
 #Tabs 
   #Stats 
   #School 
-    output$schooloutput <- renderPrint(input$schoolinput)
+    output$schooloutput <-  DT::renderDataTable({
+      search_by_df
+    }, options = list(pageLength = 1))
   #Compare
     output$compareoutput1 <- renderPrint(input$compareinput1)
     output$compareoutput2 <- renderPrint(input$compareinput2)
