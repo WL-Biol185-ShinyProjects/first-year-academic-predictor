@@ -27,7 +27,7 @@ ui <- fluidPage(
                   value = 3.5,
                   min = 0,
                   max = 4, 
-                  step = 0.01),
+                  step = 0.01)
       
       
     ),
@@ -40,29 +40,29 @@ ui <- fluidPage(
                   tabPanel("Search by Your Stats"),
                   
                   tabPanel("Search by Colleges", 
-                           selectInput('schoolinput', 'Search by School', IPEDS_data$Name, multiple=TRUE, selectize=TRUE),
+                           selectizeInput('schoolinput', 'Search by School', IPEDS_data$Name, multiple=TRUE),
                            verbatimTextOutput('schooloutput')
                            ),
                   
                   tabPanel("Compare Colleges", 
-                           selectInput('compareinput1', 'School 1', IPEDS_data$Name, multiple=TRUE, selectize=TRUE), 
+                           selectizeInput('compareinput1', 'School 1', IPEDS_data$Name, multiple=TRUE), 
                            verbatimTextOutput('compareoutput1'),
                            
-                           selectInput('compareinput2', 'School 2', IPEDS_data$Name, multiple=TRUE, selectize=TRUE),
+                           selectizeInput('compareinput2', 'School 2', IPEDS_data$Name, multiple=TRUE),
                            verbatimTextOutput('compareoutput2'),
                            
-                           selectInput('compareinput3', 'School 3', IPEDS_data$Name, multiple=TRUE, selectize=TRUE),
+                           selectizeInput('compareinput3', 'School 3', IPEDS_data$Name, multiple=TRUE),
                            verbatimTextOutput('compareoutput3'),
                            
-                           selectInput('compareinput4', 'School 4', IPEDS_data$Name, multiple=TRUE, selectize=TRUE),
+                           selectizeInput('compareinput4', 'School 4', IPEDS_data$Name, multiple=TRUE),
                            verbatimTextOutput('compareoutput4'),
                            
-                           selectInput('compareinput5', 'School 5', IPEDS_data$Name, multiple=TRUE, selectize=TRUE),
-                           verbatimTextOutput('compareoutput5'),
-                           )
+                           selectizeInput('compareinput5', 'School 5', IPEDS_data$Name, multiple=TRUE),
+                           verbatimTextOutput('compareoutput5')
+                           
       )
       
     )
   )
-)
+))
 
