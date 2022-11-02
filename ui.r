@@ -45,28 +45,6 @@ ui <- fluidPage(
                            ),
                   
                   tabPanel("Compare Colleges", 
-                           selectizeInput('compareinput1', 'School 1', IPEDS_data$Name, multiple=TRUE), 
-                           verbatimTextOutput('compareoutput1'),
-                           
-                           selectizeInput('compareinput2', 'School 2', IPEDS_data$Name, multiple=TRUE),
-                           verbatimTextOutput('compareoutput2'),
-                           
-                           selectizeInput('compareinput3', 'School 3', IPEDS_data$Name, multiple=TRUE),
-                           verbatimTextOutput('compareoutput3'),
-                           
-                           selectizeInput('compareinput4', 'School 4', IPEDS_data$Name, multiple=TRUE),
-                           verbatimTextOutput('compareoutput4'),
-                           
-                           selectizeInput('compareinput5', 'School 5', IPEDS_data$Name, multiple=TRUE),
-                           verbatimTextOutput('compareoutput5'),
-                           
-                           selectInput('schoolinput', 'Search by School', IPEDS_data$Name, multiple=TRUE, selectize=TRUE),
-                           DT::dataTableOutput("schooloutput", 
-                                               width = "75%",
-                                               height = "auto") 
-                           ),
-                  
-                  tabPanel("Compare Colleges", 
                            selectInput('compareinput1', 'School 1', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE), 
                            verbatimTextOutput('compareoutput1'),
                            
