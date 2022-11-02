@@ -1,0 +1,32 @@
+---
+title: "Search-by-college-df"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+head(IPEDS_data)
+
+```
+
+
+```{r setup, include=FALSE}
+
+search_by_df <- data.frame(IPEDS_data$Name, 
+                           IPEDS_data$`Applicants total`, 
+                           IPEDS_data$`Admissions total`,
+                           IPEDS_data$`Admissions yield - total`,
+                           IPEDS_data$`SAT Critical Reading 25th percentile score`, 
+                           IPEDS_data$`SAT Critical Reading 75th percentile score`, 
+                           IPEDS_data$`SAT Math 25th percentile score`, 
+                           IPEDS_data$`SAT Math 75th percentile score`, 
+                           IPEDS_data$`SAT Writing 25th percentile score`,
+                           IPEDS_data$`SAT Writing 75th percentile score`
+                          )
+
+```
+
+```{r}
+search_by_df <- IPEDS_data_2[, c(2, 8, 9, 19, 12:17)]
+```
+
