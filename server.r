@@ -5,11 +5,17 @@ function(input, output, session) {
   
 #Tabs 
   #Stats 
+    output$statsoutput <-DT::renderDataTable({
+      search_by_df
+    }, options = list(pageLength = 1))
+   
+    
   #School 
     output$schooloutput <-  DT::renderDataTable({
       search_by_df
     }, options = list(pageLength = 1))
-  #Compare
+ 
+     #Compare
     output$compareoutput1 <- renderPrint(input$compareinput1)
     output$compareoutput2 <- renderPrint(input$compareinput2)
     output$compareoutput3 <- renderPrint(input$compareinput3)
