@@ -27,7 +27,7 @@ ui <- fluidPage(
                   value = 3.5,
                   min = 0,
                   max = 4, 
-                  step = 0.01),
+                  step = 0.01)
       
       
     ),
@@ -49,27 +49,25 @@ ui <- fluidPage(
                            ),
                   
                   tabPanel("Search by Colleges", 
-                           selectInput('schoolinput', 'Search by School', IPEDS_data$Name, multiple=TRUE, selectize=TRUE),
-                           DT::dataTableOutput("schooloutput",
-                                               width = "75%",
-                                               height = "auto"), 
+                           selectizeInput('schoolinput', 'Search by School', IPEDS_data$Name, multiple=TRUE),
+                           verbatimTextOutput('schooloutput')
                            ),
                   
                   tabPanel("Compare Colleges", 
-                           selectInput('compareinput1', 'School 1', IPEDS_data$Name, multiple=TRUE, selectize=TRUE), 
+                           selectInput('compareinput1', 'School 1', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE), 
                            verbatimTextOutput('compareoutput1'),
                            
-                           selectInput('compareinput2', 'School 2', IPEDS_data$Name, multiple=TRUE, selectize=TRUE),
+                           selectInput('compareinput2', 'School 2', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
                            verbatimTextOutput('compareoutput2'),
                            
-                           selectInput('compareinput3', 'School 3', IPEDS_data$Name, multiple=TRUE, selectize=TRUE),
+                           selectInput('compareinput3', 'School 3', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
                            verbatimTextOutput('compareoutput3'),
                            
-                           selectInput('compareinput4', 'School 4', IPEDS_data$Name, multiple=TRUE, selectize=TRUE),
+                           selectInput('compareinput4', 'School 4', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
                            verbatimTextOutput('compareoutput4'),
                            
-                           selectInput('compareinput5', 'School 5', IPEDS_data$Name, multiple=TRUE, selectize=TRUE),
-                           verbatimTextOutput('compareoutput5'),
+                           selectInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
+                           verbatimTextOutput('compareoutput5')
                            )
       )
       

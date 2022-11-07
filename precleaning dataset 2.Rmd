@@ -3,7 +3,11 @@ title: "cleaning dataset 2"
 output: html_document
 ---
 
+<<<<<<< HEAD
 ``` 
+=======
+```
+>>>>>>> 5fa94ee5484706ab018943394f93cb0611145331
 IPEDS_data$`Religious affiliation`<- NULL
 IPEDS_data$`Highest degree offered`<- NULL
 IPEDS_data$`Offers Less than one year certificate`<- NULL
