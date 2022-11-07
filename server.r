@@ -10,13 +10,13 @@ function(input, output, session) {
   #School 
     output$schooloutput <-  renderTable({
       search_by_df %>% 
-        filter(inputId$schoolinput) %>% 
+        filter(input$schoolinput) %>% 
         select(1:10)
     })
     
     output$search_by_map <- renderLeaflet({
       IPEDS_data_2 %>%
-        filter(inputId$schoolinput) %>% 
+        filter(input$schoolinput) %>% 
         leaflet() %>% 
         setView(lng = IPEDS_data_2$`Longitude location of institution`, lat = IPEDS_data_2$`Latitude location of institution`, zoom = 12) %>% 
         addTiles()
