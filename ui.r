@@ -1,4 +1,5 @@
 library(shiny)
+library(leaflet)
 
 ui <- fluidPage(
   
@@ -39,11 +40,11 @@ ui <- fluidPage(
       tabsetPanel(type = "tabs",
                   tabPanel("Search by Your Stats"),
                   
-                  tabPanel("Search by Colleges", 
-                           selectInput('schoolinput', 'Search by School', IPEDS_data$Name, multiple=TRUE, selectize=TRUE),
-                           DT::dataTableOutput("schooloutput", 
-                                               width = "75%",
-                                               height = "auto"), 
+                  tabPanel("Search by Colleges",
+                           selectizeInput("schoolinput", "Search by School", IPEDS_data_2$Name, multiple=FALSE),
+                           actionButton("searchButton", "Search"), 
+                           tableOutput("schooloutput"), 
+                           leafletOutput("search_by_map")
                            ),
                   
                   tabPanel("Compare Colleges", 
