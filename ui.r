@@ -40,19 +40,13 @@ ui <- fluidPage(
       tabsetPanel(type = "tabs",
                   tabPanel("Search by Your Stats"),
                   
-<<<<<<< HEAD
                   tabPanel("Search by Colleges",
                            selectizeInput("schoolinput", "Search by School", IPEDS_data_2$Name, multiple=FALSE),
                            actionButton("searchButton", "Search"), 
                            tableOutput("schooloutput"), 
                            leafletOutput("search_by_map")
-=======
-                  tabPanel("Search by Colleges", 
-                           selectizeInput('schoolinput', 'Search by School', IPEDS_data$Name, multiple=TRUE),
-                           verbatimTextOutput('schooloutput')
->>>>>>> 5fa94ee5484706ab018943394f93cb0611145331
                            ),
-                  
+
                   tabPanel("Compare Colleges", 
                            selectInput('compareinput1', 'School 1', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE), 
                            verbatimTextOutput('compareoutput1'),
@@ -74,4 +68,5 @@ ui <- fluidPage(
     )
   )
 )
+
 
