@@ -5,9 +5,10 @@ function(input, output, session) {
   
 #Tabs 
   #Stats 
-    output$statsoutput <-DT::renderDataTable({
-      search_by_df
-    }, options = list(pageLength = 1))
+  output$Target_School_List <- renderTable({IPEDS_data_2 %>%
+      filter(input$statsinput >= `Total SAT 25th Percentile`)
+  
+  })
    
     
   #School 
