@@ -5,8 +5,8 @@ function(input, output, session) {
   
 #Tabs 
   #Stats 
-  output$Target_School_List <- renderTable({IPEDS_data_2 %>%
-      filter(input$statsinput >= `Total SAT 25th Percentile`)
+  output$Target_Schools <- renderTable({IPEDS_data_2 %>%
+                                        filter(input$statsinput >= `Total SAT 25th Percentile`)
   
   })
    

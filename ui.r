@@ -45,9 +45,8 @@ ui <- fluidPage(
                           value = "0",
                           min = "0",
                           max = "1600"
-                           ),
-                     mainPanel(
-                       tableOutput(Target_School_List)
+                           )
+                       
                      ),
                           
                            
