@@ -6,6 +6,7 @@ function(input, output, session) {
   
 #Tabs 
   #Stats 
+<<<<<<< HEAD
   
   #School 
     output$schooloutput <-  renderTable({
@@ -23,6 +24,20 @@ function(input, output, session) {
     })
     
   #Compare
+=======
+  output$Target_Schools <- renderTable({IPEDS_data_2 %>%
+                                        filter(input$statsinput >= `Total SAT 25th Percentile`)
+  
+  })
+   
+    
+  #School 
+    output$schooloutput <-  DT::renderDataTable({
+      search_by_df
+    }, options = list(pageLength = 1))
+ 
+     #Compare
+>>>>>>> 88240bf6c51a1a78c6fd1720dcde1aafab1e75cc
     output$compareoutput1 <- renderPrint(input$compareinput1)
     output$compareoutput2 <- renderPrint(input$compareinput2)
     output$compareoutput3 <- renderPrint(input$compareinput3)

@@ -38,7 +38,19 @@ ui <- fluidPage(
       
       # Output: Tabset w/ plot, summary, and table ----
       tabsetPanel(type = "tabs",
-                  tabPanel("Search by Your Stats"),
+                  
+                  tabPanel("Search by Your Stats",
+                     numericInput(
+                         inputId = "statsinput",
+                         label = "Enter SAT",
+                          value = "0",
+                          min = "0",
+                          max = "1600"
+                           )
+                       
+                     ),
+                          
+                           
                   
                   tabPanel("Search by Colleges",
                            selectizeInput("schoolinput", "Search by School", IPEDS_data_2$Name, multiple=FALSE),

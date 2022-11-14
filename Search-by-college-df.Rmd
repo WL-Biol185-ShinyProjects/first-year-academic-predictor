@@ -28,6 +28,11 @@ search_by_df <- data.frame(IPEDS_data$Name,
 
 ```{r}
 search_by_df <- IPEDS_data_2[, c(2, 8, 9, 19, 12:17)]
+
+```
+
+```{r}
+search_by_stats <- IPEDS_data_2$`Total SAT 25th Percentile`
 ```
 
 ```{r}
