@@ -44,7 +44,8 @@ ui <- fluidPage(
                          label = "Enter SAT",
                           value = "0",
                           min = "0",
-                          max = "1600"
+                          max = "1600",
+                          step = 10
                            )
                        
                      ),
