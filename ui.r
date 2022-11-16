@@ -65,23 +65,22 @@ ui <- fluidPage(
                   
                   tabPanel("Compare Colleges", 
                            selectInput('compareinput1', 'School 1', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE), 
-                           verbatimTextOutput('compareoutput1'),
-                           
+                
                            selectInput('compareinput2', 'School 2', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
-                           verbatimTextOutput('compareoutput2'),
-                           
+                      
                            selectInput('compareinput3', 'School 3', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
-                           verbatimTextOutput('compareoutput3'),
-                           
+                         
                            selectInput('compareinput4', 'School 4', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
-                           verbatimTextOutput('compareoutput4'),
-                           
+                          
                            selectInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
-                           verbatimTextOutput('compareoutput5')
+                           
+                           actionButton("goButton", "Compare"),
+                           
+                           plotOutput('selectInput')
+                           
                            )
       )
-      
-    )
+
   )
 
 
