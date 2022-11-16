@@ -7,6 +7,7 @@ function(input, output, session) {
 #Tabs 
   #Stats 
 
+
   
   #School 
     output$schooloutput <-  renderTable({
@@ -27,17 +28,29 @@ function(input, output, session) {
   #Compare
   output$Target_Schools <- renderTable({IPEDS_data_2 %>%
                                         filter(input$statsinput >= `Total SAT 25th Percentile`)
+
   
-  })
+ output$schoolTable <- renderTable(IPEDS_data_2$`Total SAT 75th Percentile`)
+    
    
   
  
      #Compare
+
     output$compareoutput1 <- renderPrint(input$compareinput1)
     output$compareoutput2 <- renderPrint(input$compareinput2)
     output$compareoutput3 <- renderPrint(input$compareinput3)
     output$compareoutput4 <- renderPrint(input$compareinput4)
     output$compareoutput5 <- renderPrint(input$compareinput5)
+
   
-  
+      
 }
+
+    output$plot <- renderPlot({
+      input$goButton
+      plot(compareinput1:compareinput5, ), res = 96)
+    }
+}
+)
+

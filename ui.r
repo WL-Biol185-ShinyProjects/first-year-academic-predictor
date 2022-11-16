@@ -21,6 +21,8 @@ ui <- fluidPage(
                   max = 1600, 
                   step = 10),
       
+      tableOutput(IPEDS_data_2),
+      
       
       # Input: GPA Slider 
       sliderInput("n",
@@ -43,10 +45,22 @@ ui <- fluidPage(
                      numericInput(
                          inputId = "statsinput",
                          label = "Enter SAT",
+<<<<<<< HEAD
                          value = "0",
                          min = "0",
                          max = "1600"
                            )
+=======
+                          value = "0",
+                          min = "0",
+                          max = "1600",
+                          step = 10),
+                     
+                     actionButton("submit","Submit Score", icon("submit"), width = NULL),
+                    
+                     tableOutput("schoolTable")
+                    )
+>>>>>>> ac4239b3e2f35aa878464d694729bf8dd2b99339
                        
                      ),
                           
@@ -68,24 +82,23 @@ ui <- fluidPage(
 
                   tabPanel("Compare Colleges", 
                            selectInput('compareinput1', 'School 1', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE), 
-                           verbatimTextOutput('compareoutput1'),
-                           
+                
                            selectInput('compareinput2', 'School 2', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
-                           verbatimTextOutput('compareoutput2'),
-                           
+                      
                            selectInput('compareinput3', 'School 3', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
-                           verbatimTextOutput('compareoutput3'),
-                           
+                         
                            selectInput('compareinput4', 'School 4', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
-                           verbatimTextOutput('compareoutput4'),
-                           
+                          
                            selectInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
-                           verbatimTextOutput('compareoutput5')
+                           
+                           actionButton("goButton", "Compare"),
+                           
+                           plotOutput('selectInput')
+                           
                            )
       )
-      
-    )
+
   )
-)
+
 
 
