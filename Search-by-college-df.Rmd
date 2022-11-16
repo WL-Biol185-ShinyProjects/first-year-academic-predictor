@@ -35,3 +35,23 @@ search_by_df <- IPEDS_data_2[, c(2, 8, 9, 19, 12:17)]
 search_by_stats <- IPEDS_data_2$`Total SAT 25th Percentile`
 ```
 
+```{r}
+IPEDS_data_2 %>%
+        filter(Name == "Amherst College") %>% 
+        leaflet() %>% 
+        setView(lng == IPEDS_data_2$`Longitude location of institution`, 
+                lat == IPEDS_data_2$`Latitude location of institution`, 
+                zoom = 12) %>% 
+        addTiles()
+```
+
+```{r}
+IPEDS_data_2 %>%
+        filter(Name == "Amherst College") %>% 
+        leaflet() %>% 
+        setView(lng = -72.519333, 
+                lat = 42.372139, 
+                zoom = 12) %>% 
+        addTiles()
+```
+

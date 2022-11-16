@@ -1,19 +1,39 @@
 library(shiny)
 library(leaflet)
+library(tidyverse)
 
 function(input, output, session) {
   
 #Tabs 
   #Stats 
+
+
+  
+  #School 
+    output$schooloutput <-  renderTable({
+      search_by_df %>% 
+        filter(input$schoolinput) 
+    })
+
+    output$search_by_map <- renderLeaflet({
+      IPEDS_data_2 %>%
+        filter(input$schoolinput) %>% 
+        leaflet() %>% 
+        setView(lng == IPEDS_data_2$`Longitude location of institution`, 
+                lat == IPEDS_data_2$`Latitude location of institution`, 
+                zoom = 12) %>% 
+        addTiles()
+    })
+    
+  #Compare
+  output$Target_Schools <- renderTable({IPEDS_data_2 %>%
+                                        filter(input$statsinput >= `Total SAT 25th Percentile`)
+
   
  output$schoolTable <- renderTable(IPEDS_data_2$`Total SAT 75th Percentile`)
     
    
-    
-  #School 
-    output$schooloutput <-  DT::renderDataTable({
-      search_by_df
-    }, options = list(pageLength = 1))
+  
  
      #Compare
 
