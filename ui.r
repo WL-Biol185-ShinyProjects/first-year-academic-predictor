@@ -20,6 +20,8 @@ ui <- fluidPage(
                   max = 1600, 
                   step = 10),
       
+      tableOutput(IPEDS_data_2),
+      
       
       # Input: GPA Slider 
       sliderInput("n",
@@ -44,8 +46,12 @@ ui <- fluidPage(
                          label = "Enter SAT",
                           value = "0",
                           min = "0",
-                          max = "1600"
-                           )
+                          max = "1600",
+                          step = 10),
+                     
+                     actionButton("submit","Submit Score", icon("submit"), width = NULL),
+                     
+                     DT:: dataTableOutput("schooloutput")
                        
                      ),
                           
