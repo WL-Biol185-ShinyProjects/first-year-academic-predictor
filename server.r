@@ -5,8 +5,9 @@ function(input, output, session) {
   
 #Tabs 
   #Stats 
-  output$schooloutput <- DT::renderDataTable(IPEDS_data_2)
   
+ output$schoolTable <- renderTable(IPEDS_data_2$`Total SAT 75th Percentile`)
+    
    
     
   #School 
@@ -20,6 +21,7 @@ function(input, output, session) {
     output$compareoutput3 <- renderPrint(input$compareinput3)
     output$compareoutput4 <- renderPrint(input$compareinput4)
     output$compareoutput5 <- renderPrint(input$compareinput5)
+
   
-  
+      
 }

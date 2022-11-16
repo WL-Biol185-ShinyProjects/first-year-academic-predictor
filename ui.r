@@ -50,8 +50,9 @@ ui <- fluidPage(
                           step = 10),
                      
                      actionButton("submit","Submit Score", icon("submit"), width = NULL),
-                     
-                     DT:: dataTableOutput("schooloutput")
+                    
+                     tableOutput("schoolTable")
+                    )
                        
                      ),
                           
@@ -82,5 +83,5 @@ ui <- fluidPage(
       
     )
   )
-)
+
 
