@@ -15,9 +15,15 @@ function(input, output, session) {
     }, options = list(pageLength = 1))
  
      #Compare
+       observe({
+         updateSelectInput(session, "header_input", label = "Area of Interest", choices = colnames(IPEDS_data_2))
+         })
+       
     output$plot <- renderPlot({
       input$goButton
-      plot(compareinput1:compareinput5, ), res = 96)
-    }
+      hist(IPEDS_data_2, input$header_input, xlab = input$header_input, main=input$data_input, res = 96)
+    
+    })
 }
-)
+    
+    
