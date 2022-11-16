@@ -16,7 +16,7 @@ function(input, output, session) {
     }, options = list(pageLength = 1))
  
      #Compare
-<<<<<<< HEAD
+
     output$compareoutput1 <- renderPrint(input$compareinput1)
     output$compareoutput2 <- renderPrint(input$compareinput2)
     output$compareoutput3 <- renderPrint(input$compareinput3)
@@ -26,11 +26,11 @@ function(input, output, session) {
   
       
 }
-=======
+
     output$plot <- renderPlot({
       input$goButton
       plot(compareinput1:compareinput5, ), res = 96)
     }
 }
 )
->>>>>>> 438d3e489aad2bbee5c8422ac7bc839164455cf4
+
