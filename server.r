@@ -18,8 +18,8 @@ function(input, output, session) {
       IPEDS_data_2 %>%
         filter(input$schoolinput) %>% 
         leaflet() %>% 
-        setView(lng = IPEDS_data_2$`Longitude location of institution`, 
-                lat = IPEDS_data_2$`Latitude location of institution`, 
+        setView(lng == IPEDS_data_2$`Longitude location of institution`, 
+                lat == IPEDS_data_2$`Latitude location of institution`, 
                 zoom = 12) %>% 
         addTiles()
     })
