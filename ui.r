@@ -1,4 +1,5 @@
 library(shiny)
+library(leaflet)
 
 ui <- fluidPage(
   
@@ -44,24 +45,41 @@ ui <- fluidPage(
                      numericInput(
                          inputId = "statsinput",
                          label = "Enter SAT",
+<<<<<<< HEAD
+                         value = "0",
+                         min = "0",
+                         max = "1600"
+                           )
+=======
                           value = "0",
                           min = "0",
                           max = "1600",
                           step = 10),
                      
                      actionButton("submit","Submit Score", icon("submit"), width = NULL),
-                     
-                     DT:: dataTableOutput("schooloutput")
+                    
+                     tableOutput("schoolTable")
+                    )
+>>>>>>> ac4239b3e2f35aa878464d694729bf8dd2b99339
                        
                      ),
                           
                            
                   
-                  tabPanel("Search by Colleges", 
-                           selectizeInput('schoolinput', 'Search by School', IPEDS_data$Name, multiple=TRUE),
-                           verbatimTextOutput('schooloutput')
-                           ),
+                  tabPanel("Search by Colleges",
+                           selectizeInput(
+                             inputId = "schoolinput", 
+                             label = "Search by School", 
+                             IPEDS_data_2$Name, 
+                             multiple = FALSE, 
+                             ),
+                           
+                           tableOutput("schooloutput"), 
+                           
+                           leafletOutput("search_by_map")
                   
+                          ),
+
                   tabPanel("Compare Colleges", 
                            selectInput('compareinput1', 'School 1', IPEDS_data_2$Name, multiple=FALSE, selectize=TRUE), 
                 
@@ -81,4 +99,12 @@ ui <- fluidPage(
              )
          )
       )
+<<<<<<< HEAD
    ))
+=======
+
+  )
+
+
+
+>>>>>>> 1e848eb38a7a61bac8c59396d16ab87346933f2e
