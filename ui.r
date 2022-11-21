@@ -43,24 +43,19 @@ ui <- fluidPage(
                   
                   tabPanel("Search by Your Stats",
                      numericInput(
-                         inputId = "statsinput",
+                         inputId = "statsInput",
                          label = "Enter SAT",
-<<<<<<< HEAD
                          value = "0",
                          min = "0",
-                         max = "1600"
-                           )
-=======
-                          value = "0",
-                          min = "0",
-                          max = "1600",
-                          step = 10),
+                         max = "1600",
+                         step= 10
+                                  ),
                      
-                     actionButton("submit","Submit Score", icon("submit"), width = NULL),
+                          actionButton("submit","Submit Score", icon("submit"), width = NULL),
                     
-                     tableOutput("schoolTable")
-                    )
->>>>>>> ac4239b3e2f35aa878464d694729bf8dd2b99339
+                           tableOutput("schoolTable")
+                 
+
                        
                      ),
                           
@@ -71,7 +66,7 @@ ui <- fluidPage(
                              inputId = "schoolinput", 
                              label = "Search by School", 
                              IPEDS_data_2$Name, 
-                             multiple = FALSE, 
+                             multiple = FALSE 
                              ),
                            
                            tableOutput("schooloutput"), 
@@ -98,7 +93,4 @@ ui <- fluidPage(
                            )
       )
 
-  )
-
-
-
+  ))
