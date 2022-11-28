@@ -25,7 +25,6 @@ function(input, output, session) {
         addTiles()
     })
     
-  #Compare
   output$Target_Schools <- renderTable(IPEDS_data_2 %>%
                                         filter(input$statsinput >= `Total SAT 25th Percentile`)
 )

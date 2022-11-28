@@ -40,7 +40,6 @@ ui <- fluidPage(
       
       # Output: Tabset w/ plot, summary, and table ----
       tabsetPanel(type = "tabs",
-                  
                   tabPanel("Search by Your Stats",
                      numericInput(
                          inputId = "statsinput",
@@ -53,10 +52,8 @@ ui <- fluidPage(
                      actionButton("submit","Submit Score", icon("submit"), width = NULL),
                     
                      tableOutput("schoolTable")
-                    )
-                       
-                     ),
-      
+                    ),
+ 
                   tabPanel("Search by Colleges",
                            selectizeInput(
                              inputId = "schoolinput", 
@@ -118,8 +115,9 @@ ui <- fluidPage(
                                   ),
                            column(width = 4,
                                   verbatimTextOutput("plot_clickinfo"),
-                                  ),
+                                  )
                      
      )
   ))
+ )
 )
