@@ -62,7 +62,6 @@ ui <- fluidPage(
                              multiple = FALSE 
                              ),
                            
-                           tableOutput("schooloutput"), 
                            
                            leafletOutput("search_by_map")
                   
