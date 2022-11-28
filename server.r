@@ -6,10 +6,10 @@ function(input, output, session) {
   
 #Tabs 
   #Stats 
-      output$schoolTable <- renderTable({
-        IPEDS_data_2 %>%
-          filter(input$statsInput)
-      })
+      output$schooloutput <- DT::renderDataTable(IPEDS_data_2,
+                                                options= list(scrollX= TRUE),
+                                                rownames= FALSE)
+      
 
   
   #School 
@@ -30,6 +30,10 @@ function(input, output, session) {
     
 
      #Compare
+       observe({
+         updateSelectInput(session, "header_input", label = "Area of Interest", choices = colnames(IPEDS_data_2))
+         })
+       
 
     output$compareoutput1 <- renderPrint(input$compareinput1)
     output$compareoutput2 <- renderPrint(input$compareinput2)
@@ -41,7 +45,14 @@ function(input, output, session) {
       
 }
 
+    output$plot <- renderPlot({
+      input$goButton
+      hist(IPEDS_data_2, input$header_input, xlab = input$header_input, main=input$data_input, res = 96)
+    
+    })
 
+
+    
     
 
 

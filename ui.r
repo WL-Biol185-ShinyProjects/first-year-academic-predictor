@@ -33,7 +33,7 @@ ui <- fluidPage(
                   step = 0.01)
       
       
-    ),
+    )),
     
     # Main panel for displaying outputs ----
     mainPanel(
@@ -51,13 +51,10 @@ ui <- fluidPage(
                          step= 10
                                   ),
                      
-                          actionButton("submit","Submit Score", icon("submit"), width = NULL),
+                        actionButton("submit","Submit Score", icon("submit"), width = NULL),
                     
-                           tableOutput("schoolTable")
-                 
-
-                       
-                     ),
+                           DT::dataTableOutput("schooloutput")
+                        ),
                           
                            
                   
@@ -76,21 +73,22 @@ ui <- fluidPage(
                           ),
 
                   tabPanel("Compare Colleges", 
-                           selectInput('compareinput1', 'School 1', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE), 
+                           selectInput('compareinput1', 'School 1', IPEDS_data_2$Name, multiple=FALSE, selectize=TRUE), 
                 
-                           selectInput('compareinput2', 'School 2', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
+                           selectInput('compareinput2', 'School 2', IPEDS_data_2$Name, multiple=FALSE, selectize=TRUE),
                       
-                           selectInput('compareinput3', 'School 3', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
+                           selectInput('compareinput3', 'School 3', IPEDS_data_2$Name, multiple=FALSE, selectize=TRUE),
                          
-                           selectInput('compareinput4', 'School 4', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
+                           selectInput('compareinput4', 'School 4', IPEDS_data_2$Name, multiple=FALSE, selectize=TRUE),
                           
-                           selectInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=TRUE, selectize=TRUE),
+                           selectInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE, selectize=TRUE),
                            
                            actionButton("goButton", "Compare"),
+   
+                           plotOutput("plot_output", width = "400px")
                            
-                           plotOutput('selectInput')
                            
-                           )
-      )
+             ))
+         ))
+      
 
-  ))
