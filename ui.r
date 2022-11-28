@@ -45,33 +45,24 @@ ui <- fluidPage(
                      numericInput(
                          inputId = "statsinput",
                          label = "Enter SAT",
-<<<<<<< HEAD
                          value = "0",
                          min = "0",
-                         max = "1600"
-                           )
-=======
-                          value = "0",
-                          min = "0",
-                          max = "1600",
-                          step = 10),
+                         max = "1600",
+                         step = 10),
                      
                      actionButton("submit","Submit Score", icon("submit"), width = NULL),
                     
                      tableOutput("schoolTable")
                     )
->>>>>>> ac4239b3e2f35aa878464d694729bf8dd2b99339
                        
                      ),
-                          
-                           
-                  
+      
                   tabPanel("Search by Colleges",
                            selectizeInput(
                              inputId = "schoolinput", 
                              label = "Search by School", 
                              IPEDS_data_2$Name, 
-                             multiple = FALSE, 
+                             multiple = FALSE 
                              ),
                            
                            tableOutput("schooloutput"), 
@@ -80,6 +71,29 @@ ui <- fluidPage(
                   
                           ),
 
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
                   tabPanel("Compare Colleges", 
                            selectInput('compareinput1', 'School 1', IPEDS_data_2$Name, multiple=FALSE, selectize=TRUE), 
                 
@@ -92,19 +106,20 @@ ui <- fluidPage(
                            selectInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE, selectize=TRUE),
                            
                            actionButton("goButton", "Compare"),
-   
-                           plotOutput("plot_output", width = "400px"),
                            
-                           
-             )
-         )
-      )
-<<<<<<< HEAD
-   ))
-=======
-
-  )
-
-
-
->>>>>>> 1e848eb38a7a61bac8c59396d16ab87346933f2e
+                           column(width = 4,
+                                  plotOutput("plot", height = 300,
+                                      click = clickOpts(id = "plot_click"),
+                                      hover = hoverOpts(id = "plot_hover", delayType = "throttle"),
+                                      brush = brushOpts(id = "plot_brush")
+                                  ),
+                                  h4("Clicked points"),
+                                  tableOutput("plot_clickedpoints")
+                                  ),
+                           column(width = 4,
+                                  verbatimTextOutput("plot_clickinfo"),
+                                  ),
+                     
+     )
+  ))
+)

@@ -26,44 +26,83 @@ function(input, output, session) {
     })
     
   #Compare
-  output$Target_Schools <- renderTable({IPEDS_data_2 %>%
+  output$Target_Schools <- renderTable(IPEDS_data_2 %>%
                                         filter(input$statsinput >= `Total SAT 25th Percentile`)
-
+)
   
  output$schoolTable <- renderTable(IPEDS_data_2$`Total SAT 75th Percentile`)
     
    
   
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
      #Compare
-<<<<<<< HEAD
        observe({
          updateSelectInput(session, "header_input", label = "Area of Interest", choices = colnames(IPEDS_data_2))
          })
        
-=======
-
     output$compareoutput1 <- renderPrint(input$compareinput1)
     output$compareoutput2 <- renderPrint(input$compareinput2)
     output$compareoutput3 <- renderPrint(input$compareinput3)
     output$compareoutput4 <- renderPrint(input$compareinput4)
     output$compareoutput5 <- renderPrint(input$compareinput5)
 
-  
-      
-}
+  data <- reactive({
+    input$newplot
+    IPEDS_data_2 + rnorm(nrow(IPEDS_data_2))
 
->>>>>>> 1e848eb38a7a61bac8c59396d16ab87346933f2e
-    output$plot <- renderPlot({
+  output$plot <- renderPlot({
+    d <- IPEDS_data_2
+    plot(d$Name, d$'Tuition and fees, 2013-14')
+  })
+  
+  output$plot_clickinfo <- renderPrint({
+    cat("Click:\n")
+    str(input$plot_click)
+  })
+  
+  output$plot_hoverinfo <- renderPrint({
+    cat("Hover (throttled):\n")
+    str(input$plot_hover)
+  })
+  
+  output$plot_brushinfo <- renderPrint({
+    cat("Brush (debounced):\n")
+    str(input$plot_brush)
+  })
+  
+  output$plot_clickedpoints <- renderTable({
+    res <- nearPoints(data, input$plot_click, "Name", "Tuition and fees, 2013-14")
+    if (nrow(res) == 0)
+      return()
+    res
+  })
       input$goButton
       hist(IPEDS_data_2, input$header_input, xlab = input$header_input, main=input$data_input, res = 96)
-    
-    })
+ })
 }
-<<<<<<< HEAD
     
-    
-=======
-)
-
->>>>>>> 1e848eb38a7a61bac8c59396d16ab87346933f2e
