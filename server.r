@@ -6,7 +6,10 @@ function(input, output, session) {
   
 #Tabs 
   #Stats 
-
+      output$schooltable <- DT::renderDataTable(filter(IPEDS_data_2, `Total SAT 25th Percentile` + 50 <= input$statsInput, `Total SAT 75th Percentile` - 50 >= input$statsInput),
+                                                options= list(scrollX= TRUE),
+                                                rownames= FALSE)
+      
 
   
   #School 
@@ -25,6 +28,8 @@ function(input, output, session) {
         addTiles()
     })
     
+
+
   output$Target_Schools <- renderTable(IPEDS_data_2 %>%
                                         filter(input$statsinput >= `Total SAT 25th Percentile`)
 )
@@ -59,18 +64,38 @@ function(input, output, session) {
  
  
  
+
      #Compare
  data <- reactive({
          updateSelectizeInput(session, "header_input", label = "Area of Interest", choices = colnames(IPEDS_data_2), server = TRUE)
        
        
+
     output$compareoutput1 <- renderPrint(input$compareinput1)
     output$compareoutput2 <- renderPrint(input$compareinput2)
     output$compareoutput3 <- renderPrint(input$compareinput3)
     output$compareoutput4 <- renderPrint(input$compareinput4)
     output$compareoutput5 <- renderPrint(input$compareinput5)
 
-  
+
+  data <- reactive({
+    input$newplot
+    IPEDS_data_2 + rnorm(nrow(IPEDS_data_2))
+
+
+    output$plot <- renderPlot({
+      input$goButton
+      hist(IPEDS_data_2, input$header_input, xlab = input$header_input, main=input$data_input, res = 96)
+    
+    })
+
+
+    
+    
+
+
+
+
   output$plot <- renderPlot({
     plot(IPEDS_data$`Tuition and fees, 2013-14`, IPEDS_data$`Percent of freshmen receiving any financial aid`, color = 'Name')
   })
@@ -100,3 +125,4 @@ function(input, output, session) {
  })
 }
     
+

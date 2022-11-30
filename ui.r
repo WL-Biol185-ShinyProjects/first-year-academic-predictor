@@ -44,19 +44,20 @@ ui <- fluidPage(
       tabsetPanel(type = "tabs",
                   tabPanel("Search by Your Stats",
                      numericInput(
-                         inputId = "statsinput",
-                         label = "Enter SAT",
+                         inputId = "statsInput",
+                         label = "Enter SAT to see compatible schools",
                          value = "0",
                          min = "0",
                          max = "1600",
-                         step = 10),
-                     
+                         step= 10),
+
                      actionButton("submit","Submit Score", icon("submit"), width = NULL),
                     
-                     tableOutput("schoolTable")
-                    ),
- 
-                  tabPanel("Search by Colleges",
+
+                           DT::dataTableOutput("schooltable")
+                        ),
+                  
+       tabPanel("Search by Colleges",
                            selectizeInput(
                              inputId = "schoolinput", 
                              label = "Search by School", 
@@ -68,28 +69,6 @@ ui <- fluidPage(
                            leafletOutput("search_by_map")
                   
                           ),
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       
       
                   tabPanel("Compare Colleges", 
@@ -104,6 +83,7 @@ ui <- fluidPage(
                            selectizeInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE),
                            
                            actionButton("goButton", "Compare"),
+
                            
                            plotOutput("plot", height = 300,
                                       click = clickOpts(id = "plot_click"),
@@ -113,3 +93,20 @@ ui <- fluidPage(
      )
   ))
 ))
+
+   
+                          
+                           column(width = 4,
+                                  plotOutput("plot", height = 300,
+                                      click = clickOpts(id = "plot_click"),
+                                      hover = hoverOpts(id = "plot_hover", delayType = "throttle"),
+                                      brush = brushOpts(id = "plot_brush")
+                                  ),
+                                  h4("Clicked points"),
+                                  tableOutput("plot_clickedpoints")
+                                  ),
+                           column(width = 4,
+                                  verbatimTextOutput("plot_clickinfo"),
+                                  )
+                     
+                  )))))
