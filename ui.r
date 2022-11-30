@@ -1,5 +1,7 @@
 library(shiny)
 library(leaflet)
+library(tidyverse)
+
 
 ui <- fluidPage(
   
@@ -91,32 +93,23 @@ ui <- fluidPage(
       
       
                   tabPanel("Compare Colleges", 
-                           selectInput('compareinput1', 'School 1', IPEDS_data_2$Name, multiple=FALSE, selectize=TRUE), 
+                           selectizeInput('compareinput1', 'School 1', IPEDS_data_2$Name, multiple=FALSE), 
                 
-                           selectInput('compareinput2', 'School 2', IPEDS_data_2$Name, multiple=FALSE, selectize=TRUE),
+                           selectizeInput('compareinput2', 'School 2', IPEDS_data_2$Name, multiple=FALSE),
                       
-                           selectInput('compareinput3', 'School 3', IPEDS_data_2$Name, multiple=FALSE, selectize=TRUE),
+                           selectizeInput('compareinput3', 'School 3', IPEDS_data_2$Name, multiple=FALSE),
                          
-                           selectInput('compareinput4', 'School 4', IPEDS_data_2$Name, multiple=FALSE, selectize=TRUE),
+                           selectizeInput('compareinput4', 'School 4', IPEDS_data_2$Name, multiple=FALSE),
                           
-                           selectInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE, selectize=TRUE),
+                           selectizeInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE),
                            
                            actionButton("goButton", "Compare"),
                            
-                           column(width = 4,
-                                  plotOutput("plot", height = 300,
+                           plotOutput("plot", height = 300,
                                       click = clickOpts(id = "plot_click"),
                                       hover = hoverOpts(id = "plot_hover", delayType = "throttle"),
-                                      brush = brushOpts(id = "plot_brush")
-                                  ),
-                                  h4("Clicked points"),
-                                  tableOutput("plot_clickedpoints")
-                                  ),
-                           column(width = 4,
-                                  verbatimTextOutput("plot_clickinfo"),
-                                  )
-                     
+                             
+       )
      )
   ))
- )
-)
+))

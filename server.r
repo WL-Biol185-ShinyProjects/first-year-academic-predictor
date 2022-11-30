@@ -60,9 +60,9 @@ function(input, output, session) {
  
  
      #Compare
-       observe({
-         updateSelectInput(session, "header_input", label = "Area of Interest", choices = colnames(IPEDS_data_2))
-         })
+ data <- reactive({
+         updateSelectizeInput(session, "header_input", label = "Area of Interest", choices = colnames(IPEDS_data_2), server = TRUE)
+       
        
     output$compareoutput1 <- renderPrint(input$compareinput1)
     output$compareoutput2 <- renderPrint(input$compareinput2)
@@ -70,13 +70,9 @@ function(input, output, session) {
     output$compareoutput4 <- renderPrint(input$compareinput4)
     output$compareoutput5 <- renderPrint(input$compareinput5)
 
-  data <- reactive({
-    input$newplot
-    IPEDS_data_2 + rnorm(nrow(IPEDS_data_2))
-
+  
   output$plot <- renderPlot({
-    d <- IPEDS_data_2
-    plot(d$Name, d$'Tuition and fees, 2013-14')
+    plot(IPEDS_data$`Tuition and fees, 2013-14`, IPEDS_data$`Percent of freshmen receiving any financial aid`, color = 'Name')
   })
   
   output$plot_clickinfo <- renderPrint({
@@ -95,12 +91,11 @@ function(input, output, session) {
   })
   
   output$plot_clickedpoints <- renderTable({
-    res <- nearPoints(data, input$plot_click, "Name", "Tuition and fees, 2013-14")
-    if (nrow(res) == 0)
+    IPEDS_data_2 <- nearPoints(data, input$plot_click, "Name", "Tuition and fees, 2013-14")
+    if (nrow(IPEDS_data_2) == 0)
       return()
     res
   })
-      input$goButton
       hist(IPEDS_data_2, input$header_input, xlab = input$header_input, main=input$data_input, res = 96)
  })
 }
