@@ -88,25 +88,17 @@ ui <- fluidPage(
                            plotOutput("plot", height = 300,
                                       click = clickOpts(id = "plot_click"),
                                       hover = hoverOpts(id = "plot_hover", delayType = "throttle"),
+                                             ),
+                                  h4("Clicked points"),
+                                  tableOutput("plot_clickedpoints")
+                                  )
                              
        )
      )
-  ))
-))
+    ))
+
 
    
                           
-                           column(width = 4,
-                                  plotOutput("plot", height = 300,
-                                      click = clickOpts(id = "plot_click"),
-                                      hover = hoverOpts(id = "plot_hover", delayType = "throttle"),
-                                      brush = brushOpts(id = "plot_brush")
-                                  ),
-                                  h4("Clicked points"),
-                                  tableOutput("plot_clickedpoints")
-                                  ),
-                           column(width = 4,
-                                  verbatimTextOutput("plot_clickinfo"),
-                                  )
-                     
-                  )))))
+                         
+     
