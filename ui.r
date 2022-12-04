@@ -71,6 +71,7 @@ ui <- fluidPage(
                            DT::dataTableOutput("schooltable")
                         ),
                   
+
        tabPanel("Explore",
                            selectizeInput(
                              inputId = "exploreschool", 
@@ -78,7 +79,7 @@ ui <- fluidPage(
                              choices = as.list(IPEDS_data_2$Name), 
                              multiple = FALSE),
                            
-                           tableOutput("searchtable"), 
+                           DT::dataTableOutput("searchtable"), 
                 
                            leafletOutput("map"),
                 
@@ -136,14 +137,19 @@ ui <- fluidPage(
                            plotOutput("plot", height = 300,
                                       click = clickOpts(id = "plot_click"),
                                       hover = hoverOpts(id = "plot_hover", delayType = "throttle"),
+                                            ),
+                                      
+                                  h4("Clicked points"),
+                                  tableOutput("plot_clickedpoints")
+                                  )
                              
-       )
-     )
-  ))
-))
+        )
+      )
+    ))
 
    
                           
+<<<<<<< HEAD
                            column(width = 4,
                                   plotOutput("plot", height = 300,
                                       click = clickOpts(id = "plot_click"),
@@ -159,3 +165,7 @@ ui <- fluidPage(
                      
                   )))))
 
+=======
+                         
+    
+>>>>>>> b43659f8d7999564ffdc4c6cc1905d054a64d9f4

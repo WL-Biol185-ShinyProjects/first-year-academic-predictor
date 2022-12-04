@@ -49,6 +49,7 @@ function(input, output, session) {
 
 
     
+<<<<<<< HEAD
     
     
     
@@ -84,13 +85,14 @@ function(input, output, session) {
  
  
  
+=======
+
+>>>>>>> b43659f8d7999564ffdc4c6cc1905d054a64d9f4
 
      #Compare
  data <- reactive({
          updateSelectizeInput(session, "header_input", label = "Area of Interest", choices = colnames(IPEDS_data_2), server = TRUE)
-       
-       
-
+   
     output$compareoutput1 <- renderPrint(input$compareinput1)
     output$compareoutput2 <- renderPrint(input$compareinput2)
     output$compareoutput3 <- renderPrint(input$compareinput3)
@@ -98,27 +100,21 @@ function(input, output, session) {
     output$compareoutput5 <- renderPrint(input$compareinput5)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   
   }
 =======
 
   data <- reactive({
+=======
+>>>>>>> b43659f8d7999564ffdc4c6cc1905d054a64d9f4
     input$newplot
     IPEDS_data_2 + rnorm(nrow(IPEDS_data_2))
-
 
     output$plot <- renderPlot({
       input$goButton
       hist(IPEDS_data_2, input$header_input, xlab = input$header_input, main=input$data_input, res = 96)
-    
     })
-
-
-    
-    
-
-
-
 
   output$plot <- renderPlot({
     plot(IPEDS_data$`Tuition and fees, 2013-14`, IPEDS_data$`Percent of freshmen receiving any financial aid`, color = 'Name')
@@ -134,11 +130,6 @@ function(input, output, session) {
     str(input$plot_hover)
   })
   
-  output$plot_brushinfo <- renderPrint({
-    cat("Brush (debounced):\n")
-    str(input$plot_brush)
-  })
-  
   output$plot_clickedpoints <- renderTable({
     IPEDS_data_2 <- nearPoints(data, input$plot_click, "Name", "Tuition and fees, 2013-14")
     if (nrow(IPEDS_data_2) == 0)
@@ -147,7 +138,11 @@ function(input, output, session) {
   })
       hist(IPEDS_data_2, input$header_input, xlab = input$header_input, main=input$data_input, res = 96)
  })
-}
+
+  
+    }
+ 
+
     
 >>>>>>> 96d2a3f87e8e874c7f3f294026e8a582ffbc5518
 
