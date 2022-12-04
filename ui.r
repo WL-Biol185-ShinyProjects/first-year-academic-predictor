@@ -57,7 +57,7 @@ ui <- fluidPage(
                            DT::dataTableOutput("schooltable")
                         ),
                   
-       tabPanel("Search by Colleges",
+                 tabPanel("Search by Colleges",
                            selectizeInput(
                              inputId = "schoolinput", 
                              label = "Search by School", 
@@ -88,13 +88,6 @@ ui <- fluidPage(
                            plotOutput("plot", height = 300,
                                       click = clickOpts(id = "plot_click"),
                                       hover = hoverOpts(id = "plot_hover", delayType = "throttle"),
-                             
-       )
-     )
-  ))
-))
-
-   
                           
                            column(width = 4,
                                   plotOutput("plot", height = 300,
@@ -106,7 +99,9 @@ ui <- fluidPage(
                                   tableOutput("plot_clickedpoints")
                                   ),
                            column(width = 4,
-                                  verbatimTextOutput("plot_clickinfo"),
+                                  verbatimTextOutput("plot_clickinfo")
                                   )
                      
-                  )))))
+                                  )
+                           )
+                 ))))

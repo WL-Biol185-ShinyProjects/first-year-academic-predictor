@@ -36,34 +36,7 @@ function(input, output, session) {
   
  output$schoolTable <- renderTable(IPEDS_data_2$`Total SAT 75th Percentile`)
     
-   
-  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
 
      #Compare
  data <- reactive({
@@ -123,6 +96,9 @@ function(input, output, session) {
   })
       hist(IPEDS_data_2, input$header_input, xlab = input$header_input, main=input$data_input, res = 96)
  })
-}
+  
+    })
+ 
+  }
     
 
