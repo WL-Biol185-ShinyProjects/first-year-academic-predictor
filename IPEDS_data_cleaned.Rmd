@@ -12,3 +12,8 @@ IPEDS_data_2$`Total SAT 25th Percentile` <- IPEDS_data_2$`SAT Critical Reading 2
 IPEDS_data_2$`Total SAT 75th Percentile` <- IPEDS_data_2$`SAT Critical Reading 75th percentile score`+ IPEDS_data_2$`SAT Math 75th percentile score`
 ```
 
+```{r}
+
+
+```
+

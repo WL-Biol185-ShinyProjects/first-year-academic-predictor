@@ -75,3 +75,21 @@ leaflet(data = IPEDS_data_2) %>%
   
 ```
 
+
+```{r}
+library(ggplot2)
+View(diamonds)
+```
+
+```{r}
+IPEDS_data %>% 
+  filter(IPEDS_data$`State abbreviation` == "Alabama") %>%
+  ggplot(aes(IPEDS_data$`Estimated freshman enrollment, full time`, IPEDS_data$`Tuition and fees, 2013-14`)) +
+    geom_point()
+```
+
+```{r}
+ ggplot(IPEDS_data_2, aes(IPEDS_data$`Estimated freshman enrollment, full time`, IPEDS_data_2$`Total SAT 75th Percentile`)) +
+    geom_point()
+```
+
