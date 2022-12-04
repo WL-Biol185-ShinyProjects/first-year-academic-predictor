@@ -6,6 +6,7 @@ output: html_document
 ```{r setup, include=FALSE}
 
 head(IPEDS_data)
+library(leaflet)
 
 ```
 
@@ -36,14 +37,23 @@ search_by_stats <- IPEDS_data_2$`Total SAT 25th Percentile`
 ```
 
 ```{r}
+as.numeric(IPEDS_data_2$`Longitude location of institution`)
+
+as.numeric(IPEDS_data_2$`Latitude location of institution`)
+
+as.list(IPEDS_data_2$Name)
+```
+
+```{r}
 IPEDS_data_2 %>%
-        filter(Name == "Amherst College") %>% 
+        filter(Name = "Amherst College") %>% 
         leaflet() %>% 
-        setView(lng == IPEDS_data_2$`Longitude location of institution`, 
-                lat == IPEDS_data_2$`Latitude location of institution`, 
+        setView(lng = as.numeric(IPEDS_data_2$`Longitude location of institution`), 
+                lat = as.numeric(IPEDS_data_2$`Latitude location of institution`), 
                 zoom = 12) %>% 
         addTiles()
 ```
+
 
 ```{r}
 IPEDS_data_2 %>%
@@ -53,5 +63,15 @@ IPEDS_data_2 %>%
                 lat = 42.372139, 
                 zoom = 12) %>% 
         addTiles()
+```
+```{r}
+leaflet(data = IPEDS_data_2) %>%
+  filter(IPEDS_data_2$Name = 'University of Alabama') %>%
+  addProviderTiles(providers$Esri.NatGeoWorldMap) %>%
+  setView(lng = as.numeric(IPEDS_data_2$`Longitude location of institution`), 
+          lat = as.numeric(IPEDS_data_2$`Latitude location of institution`), 
+          zoom = 12) %>%
+  addMarkers(label = IPEDS_data_2$Name)
+  
 ```
 

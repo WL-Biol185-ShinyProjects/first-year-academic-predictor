@@ -45,12 +45,6 @@ ui <- fluidPage(
                      numericInput(
                          inputId = "statsinput",
                          label = "Enter SAT",
-<<<<<<< HEAD
-                         value = "0",
-                         min = "0",
-                         max = "1600"
-                           )
-=======
                           value = "0",
                           min = "0",
                           max = "1600",
@@ -59,24 +53,21 @@ ui <- fluidPage(
                      actionButton("submit","Submit Score", icon("submit"), width = NULL),
                     
                      tableOutput("schoolTable")
-                    )
->>>>>>> ac4239b3e2f35aa878464d694729bf8dd2b99339
-                       
-                     ),
+                    ),
                           
                            
                   
                   tabPanel("Search by Colleges",
                            selectizeInput(
-                             inputId = "schoolinput", 
+                             inputId = "searchschool", 
                              label = "Search by School", 
-                             IPEDS_data_2$Name, 
-                             multiple = FALSE, 
+                             choices = as.list(IPEDS_data_2$Name), 
+                             multiple = FALSE
                              ),
                            
-                           tableOutput("schooloutput"), 
+                           tableOutput("schooltable"), 
                            
-                           leafletOutput("search_by_map")
+                           leafletOutput("map")
                   
                           ),
 
@@ -96,9 +87,4 @@ ui <- fluidPage(
                            plotOutput('selectInput')
                            
                            )
-      )
-
-  )
-
-
-
+      ))))

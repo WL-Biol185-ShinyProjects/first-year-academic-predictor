@@ -10,30 +10,23 @@ function(input, output, session) {
 
   
   #School 
-    output$schooloutput <-  renderTable({
-      search_by_df %>% 
-        filter(input$schoolinput) 
+    output$schooltable <-  renderTable({
+      schooltable <- search_by_df %>% 
+        filter(input$searchschool, asJSON(keep_vec_names=TRUE)) 
     })
+    
 
     output$search_by_map <- renderLeaflet({
       IPEDS_data_2 %>%
-        filter(input$schoolinput) %>% 
+        filter(input$searchschool) %>% 
         leaflet() %>% 
-        setView(lng == IPEDS_data_2$`Longitude location of institution`, 
-                lat == IPEDS_data_2$`Latitude location of institution`, 
-                zoom = 12) %>% 
-        addTiles()
+        addProviderTiles(providers$Esri.NatGeoWorldMap) %>%
+        setView(lng = as.numeric(IPEDS_data_2$`Longitude location of institution`), 
+                lat = as.numeric(IPEDS_data_2$`Latitude location of institution`), 
+                zoom = 12) %>%
+        addMarkers(label = IPEDS_data_2$Name)
+        
     })
-    
-  #Compare
-  output$Target_Schools <- renderTable({IPEDS_data_2 %>%
-                                        filter(input$statsinput >= `Total SAT 25th Percentile`)
-
-  
- output$schoolTable <- renderTable(IPEDS_data_2$`Total SAT 75th Percentile`)
-    
-   
-  
  
      #Compare
 
@@ -44,13 +37,5 @@ function(input, output, session) {
     output$compareoutput5 <- renderPrint(input$compareinput5)
 
   
-      
-}
-
-    output$plot <- renderPlot({
-      input$goButton
-      plot(compareinput1:compareinput5, ), res = 96)
-    }
-}
-)
+  }
 
