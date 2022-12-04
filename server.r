@@ -33,11 +33,26 @@ function(input, output, session) {
         ggplot()
     )
     
-    output$statesat25th <- renderPlot()
+    output$statesat25th <- renderPlot(
+      IPEDS_data_2 %>%
+        filter(IPEDS_data_2$`State abbreviation` == input$explorestate) %>%
+        ggplot(aes(IPEDS_data_2$`Estimated freshman enrollment, full time`, IPEDS_data_2$`Total SAT 25th Percentile`)) +
+          geom_point()
+    )
     
-    output$statesat75th <- renderPlot()
+    output$statesat75th <- renderPlot(
+      IPEDS_data_2 %>%
+        filter(IPEDS_data_2$`State abbreviation` == input$explorestate) %>%
+        ggplot(aes(IPEDS_data_2$`Estimated freshman enrollment, full time`, IPEDS_data_2$`Total SAT 75th Percentile`)) +
+        geom_point()
+    )
     
-    output$statetuition <- renderPlot()
+    output$statetuition <- renderPlot(
+      IPEDS_data_2 %>%
+        filter(IPEDS_data_2$`State abbreviation` == input$explorestate) %>%
+        ggplot(aes(IPEDS_data_2$`Estimated freshman enrollment, full time`, IPEDS_data_2$`Tuition and fees, 2013-14`)) +
+        geom_point()
+    )
     
     output$regionenrollment <- renderPlot()
     

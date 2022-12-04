@@ -89,7 +89,7 @@ IPEDS_data %>%
 ```
 
 ```{r}
- ggplot(IPEDS_data_2, aes(IPEDS_data$`Estimated freshman enrollment, full time`, IPEDS_data_2$`Total SAT 75th Percentile`)) +
+ ggplot(IPEDS_data_2, aes(IPEDS_data_2$`SAT Math 25th percentile score`, IPEDS_data_2$`Tuition and fees, 2013-14`)) +
     geom_point()
 ```
 

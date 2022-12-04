@@ -86,7 +86,7 @@ ui <- fluidPage(
                            selectInput(
                              inputId = "explorestate",
                              label = "Explore by State", 
-                             choices = IPEDS_data$`State abbreviation`,
+                             choices = IPEDS_data_2$`State abbreviation`,
                              multiple = FALSE), 
                 
                            plotOutput("stateenrollment"), 
@@ -100,7 +100,7 @@ ui <- fluidPage(
                            selectInput(
                              inputId = "exploreregion", 
                              label = "Explore by State", 
-                             choices = IPEDS_data$`Geographic region`,
+                             choices = IPEDS_data_2$`Geographic region`,
                              multiple = FALSE), 
                 
                            plotOutput("regionenrollment"), 
