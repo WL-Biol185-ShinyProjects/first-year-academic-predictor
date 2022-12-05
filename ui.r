@@ -8,45 +8,14 @@ ui <- fluidPage(
   
   # App title ----
   titlePanel("College Match: SAT and GPA"),
-  
-  # Sidebar layout with input and output definitions ----
-  sidebarLayout(
-    
-    # Sidebar panel for inputs ----
-    sidebarPanel(
-      
-      
-      # Input: SAT Slider 
-      sliderInput("n",
-                  "SAT Score",
-                  value = 1250,
-                  min = 0,
-                  max = 1600, 
-                  step = 10),
-      
-      tableOutput(IPEDS_data_2),
-      
-      
-      # Input: GPA Slider 
-      sliderInput("n",
-                  "GPA (unweighted)",
-                  value = 3.5,
-                  min = 0,
-                  max = 4, 
-                  step = 0.01)
-      
-      
-    ),
     
     mainPanel(
       
       # Output: Tabset w/ plot, summary, and table ----
       tabsetPanel(type = "tabs",
-                  tabPanel("Search by Your Stats",
-                     numericInput(
-
-                         inputId = "statsinput",
-                         label = "Enter SAT",
+                  tabPanel("Search by Your Stats"),
+                     numericInput("statsinput",
+                         "Enter SAT",
                           value = "0",
                           min = "0",
                           max = "1600",
@@ -55,12 +24,9 @@ ui <- fluidPage(
                      actionButton("submit","Submit Score", icon("submit"), width = NULL),
                     
                      tableOutput("schoolTable")
-                    ),
-                          
-                           
-
-                         inputId = "statsInput",
-                         label = "Enter SAT to see compatible schools",
+                      ),
+                        "statsInput",
+                        "Enter SAT to see compatible schools",
                          value = "0",
                          min = "0",
                          max = "1600",
@@ -70,11 +36,11 @@ ui <- fluidPage(
                     
 
                            DT::dataTableOutput("schooltable")
-                        ),
+                        )
                   
 
-        tabPanel("Explore",
-                            selectizeInput("searchschool", 
+         tabPanel("Explore",
+                           selectizeInput("searchschool", 
                                           "Explore by School", 
                                           choices = as.list(IPEDS_data_2$Name), 
                                           multiple = FALSE),
@@ -110,20 +76,12 @@ ui <- fluidPage(
                            plotOutput("regionsat75th"), 
                             
                            plotOutput("regiontuition"), 
-                    ),
+                    )
       
       
                   tabPanel("Compare Colleges", 
                          
-                              selectizeInput('compareinput1', 'School 1', IPEDS_data_2$Name, multiple=FALSE), 
-                
-                              selectizeInput('compareinput2', 'School 2', IPEDS_data_2$Name, multiple=FALSE),
-                      
-                              selectizeInput('compareinput3', 'School 3', IPEDS_data_2$Name, multiple=FALSE),
-                         
-                              selectizeInput('compareinput4', 'School 4', IPEDS_data_2$Name, multiple=FALSE),
-                          
-                              selectizeInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE),
+                              selectizeInput('compareinput', 'Select Schools', IPEDS_data$Name, multiple=TRUE),
                            
                               actionButton("goButton", "Compare"),
                               
@@ -138,4 +96,3 @@ ui <- fluidPage(
        
        )
    )
-))

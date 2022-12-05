@@ -10,13 +10,13 @@ function(input, output, session) {
     output$schooltable <- DT::renderDataTable(
       filter(IPEDS_data_2, `Total SAT 25th Percentile` + 50 <= input$statsInput, `Total SAT 75th Percentile` - 50 >= input$statsInput),
       options= list(scrollX= TRUE),
-      rownames= FALSE))
+      rownames= FALSE)
     
       
   
   #Explore 
     output$searchtable <-  DT::renderDataTable(
-      search_by_df[, input$searchschool], 
+      search_by_college_df[input$searchschool], 
       pageLength = 1
     )
 
@@ -66,24 +66,10 @@ function(input, output, session) {
     
     output$regiontuition <- renderPlot()
 
-    
-    
-    
-    output$Target_Schools <- renderTable(IPEDS_data_2 %>%
-                                        filter(input$statsinput >= `Total SAT 25th Percentile`),
-  
-    output$schoolTable <- renderTable(IPEDS_data_2$`Total SAT 75th Percentile`),
-    )
-    
-
  
  
  
  
- 
- 
- 
-
     
     
     
@@ -118,13 +104,16 @@ function(input, output, session) {
 
      #Compare
  data <- reactive({
-         updateSelectizeInput(session, "header_input", label = "Area of Interest", choices = colnames(IPEDS_data_2), server = TRUE)}
+         updateSelectizeInput(session, "header_input", 
+                              label = "Area of Interest", 
+                              choices = colnames(IPEDS_data_2), 
+                              server = TRUE)})
          
     output$plot <- renderPlot({
       ggplot(IPEDS_data, aes(IPEDS_data$Name, 
                               IPEDS_data$`Tuition and fees, 2013-14`, 
                               color = IPEDS_data$`Control of institution`))
-
+  
     output$comparecolleges <- renderPlot({
        ggplot2::aes(IPEDS_data$Name,
                    IPEDS_data$`Tuition and fees, 2013-14`, 
@@ -136,5 +125,4 @@ function(input, output, session) {
 )
 })
 })
-)
 }
