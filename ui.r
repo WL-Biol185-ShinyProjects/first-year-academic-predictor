@@ -15,7 +15,6 @@ ui <- fluidPage(
     # Sidebar panel for inputs ----
     sidebarPanel(
       
-      
       # Input: SAT Slider 
       sliderInput("n",
                   "SAT Score",
@@ -44,7 +43,11 @@ ui <- fluidPage(
       tabsetPanel(type = "tabs",
                   tabPanel("Search by Your Stats",
                      numericInput(
+<<<<<<< HEAD
                        inputId = "statsInput",
+=======
+                         inputId = "statsInput",
+>>>>>>> 4c4e1efc1f8d5292827e09fcf9645680ab1eb318
                          label = "Enter SAT to see compatible schools",
                          value = "0",
                          min = "0",
@@ -54,7 +57,7 @@ ui <- fluidPage(
                          actionButton("submit","Submit Score", icon("submit"), width = NULL),
                     
 
-                           DT::dataTableOutput("schooltable")
+                     DT::dataTableOutput("schooltable")
                         ),
                   
 
@@ -108,8 +111,31 @@ ui <- fluidPage(
                          
                               selectizeInput('compareinput4', 'School 4', IPEDS_data_2$Name, multiple=FALSE),
                           
+<<<<<<< HEAD
 
                            selectizeInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE),
+=======
+                           selectizeInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE),
+                           
+                           actionButton("goButton", "Compare"),
+
+                           
+                           plotOutput('selectInput'),
+                           
+                           plotOutput("plot", height = 300,
+                                      click = clickOpts(id = "plot_click"),
+                                      hover = hoverOpts(id = "plot_hover", delayType = "throttle"),
+                                            ),
+                                      
+                                  h4("Clicked points"),
+                                  tableOutput("plot_clickedpoints")
+                                  ),
+                            
+
+   
+                          
+                              selectizeInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE),
+>>>>>>> 4c4e1efc1f8d5292827e09fcf9645680ab1eb318
                            
                            actionButton("goButton", "Compare"),
 
@@ -125,5 +151,9 @@ ui <- fluidPage(
        
        )
    )
+<<<<<<< HEAD
 ))))
 
+=======
+)))
+>>>>>>> 4c4e1efc1f8d5292827e09fcf9645680ab1eb318
