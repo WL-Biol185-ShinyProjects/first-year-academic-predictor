@@ -6,12 +6,12 @@ library(ggplot2)
 function(input, output, session) {
   
 #Tabs 
-  #Stats 
+  # Stats
     output$schooltable <- DT::renderDataTable(
       filter(IPEDS_data_2, `Total SAT 25th Percentile` + 50 <= input$statsInput, `Total SAT 75th Percentile` - 50 >= input$statsInput),
       options= list(scrollX= TRUE),
-      rownames= FALSE
-    )
+      rownames= FALSE))
+    
       
   
   #Explore 
