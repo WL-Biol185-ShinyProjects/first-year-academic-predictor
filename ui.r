@@ -38,13 +38,27 @@ ui <- fluidPage(
       
     ),
     
-    # Main panel for displaying outputs ----
     mainPanel(
       
       # Output: Tabset w/ plot, summary, and table ----
       tabsetPanel(type = "tabs",
                   tabPanel("Search by Your Stats",
                      numericInput(
+
+                         inputId = "statsinput",
+                         label = "Enter SAT",
+                          value = "0",
+                          min = "0",
+                          max = "1600",
+                          step = 10),
+                     
+                     actionButton("submit","Submit Score", icon("submit"), width = NULL),
+                    
+                     tableOutput("schoolTable")
+                    ),
+                          
+                           
+
                          inputId = "statsInput",
                          label = "Enter SAT to see compatible schools",
                          value = "0",
@@ -58,18 +72,46 @@ ui <- fluidPage(
                            DT::dataTableOutput("schooltable")
                         ),
                   
-       tabPanel("Search by Colleges",
+
+       tabPanel("Explore",
                            selectizeInput(
-                             inputId = "schoolinput", 
-                             label = "Search by School", 
-                             IPEDS_data_2$Name, 
-                             multiple = FALSE 
-                             ),
+                             inputId = "exploreschool", 
+                             label = "Explore by School", 
+                             choices = as.list(IPEDS_data_2$Name), 
+                             multiple = FALSE),
                            
-                           
-                           leafletOutput("search_by_map")
-                  
-                          ),
+                           DT::dataTableOutput("searchtable"), 
+                
+                           leafletOutput("map"),
+                
+                           selectInput(
+                             inputId = "explorestate",
+                             label = "Explore by State", 
+                             choices = IPEDS_data_2$`State abbreviation`,
+                             multiple = FALSE), 
+                
+                           plotOutput("stateenrollment"), 
+                
+                           plotOutput("statesat25th"), 
+                
+                           plotOutput("statesat75th"), 
+               
+                           plotOutput("statetuition"), 
+                
+                           selectInput(
+                             inputId = "exploreregion", 
+                             label = "Explore by State", 
+                             choices = IPEDS_data_2$`Geographic region`,
+                             multiple = FALSE), 
+                
+                           plotOutput("regionenrollment"), 
+                            
+                           plotOutput("regionsat25th"), 
+                            
+                           plotOutput("regionsat75th"), 
+                            
+                           plotOutput("regiontuition"), 
+                    ),
       
       
                   tabPanel("Compare Colleges", 
@@ -98,7 +140,3 @@ ui <- fluidPage(
        )
    )
 ))
-
-         )
-  )
-
