@@ -58,13 +58,12 @@ ui <- fluidPage(
                         ),
                   
 
-       tabPanel("Explore",
-                           selectizeInput(
-                             inputId = "exploreschool", 
-                             label = "Explore by School", 
-                             choices = as.list(IPEDS_data_2$Name), 
-                             multiple = FALSE),
-                           
+        tabPanel("Explore",
+                            selectizeInput("searchschool", 
+                                          "Explore by School", 
+                                          choices = as.list(IPEDS_data_2$Name), 
+                                          multiple = FALSE),
+                             
                            DT::dataTableOutput("searchtable"), 
                 
                            leafletOutput("map"),
