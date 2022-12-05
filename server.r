@@ -6,13 +6,14 @@ library(ggplot2)
 function(input, output, session) {
   
 #Tabs 
-  #Stats 
+  # Stats
     output$schooltable <- DT::renderDataTable(
       filter(IPEDS_data_2, `Total SAT 25th Percentile` + 50 <= input$statsInput, `Total SAT 75th Percentile` - 50 >= input$statsInput),
       options= list(scrollX= TRUE),
       rownames= FALSE
     )
 
+    
   #Explore 
     output$searchtable <-  DT::renderDataTable(
       search_by_df[, input$searchschool], 
@@ -30,11 +31,11 @@ function(input, output, session) {
         addMarkers(label = IPEDS_data_2$Name)
     })
     
-    output$stateenrollment <- renderPlot(
-      IPEDS_data %>%
-        filter(IPEDS_data$`State abbreviation` == input$explorestate) %>%
-        ggplot()
-    )
+    #output$stateenrollment <- renderPlot(
+      #IPEDS_data %>%
+        #filter(IPEDS_data$`State abbreviation` == input$explorestate) %>%
+        #ggplot()
+    #)
     
     output$statesat25th <- renderPlot(
       IPEDS_data_2 %>%
@@ -57,22 +58,15 @@ function(input, output, session) {
         geom_point()
     )
     
-    output$regionenrollment <- renderPlot()
+    #output$regionenrollment <- renderPlot()
     
-    output$regionsat25th <- renderPlot()
+    #output$regionsat25th <- renderPlot()
     
-    output$regionsat75th <- renderPlot()
+    #output$regionsat75th <- renderPlot()
     
-    output$regiontuition <- renderPlot()
+    #output$regiontuition <- renderPlot()
 
 
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -118,7 +112,7 @@ function(input, output, session) {
     
      #Compare
  data <- reactive({
-         updateSelectizeInput(session, "header_input", label = "Area of Interest", choices = colnames(IPEDS_data_2), server = TRUE)}
+         updateSelectizeInput(session, "header_input", label = "Area of Interest", choices = colnames(IPEDS_data_2), server = TRUE)
          
          output$plot <- renderPlot({
            ggplot(IPEDS_data, aes(IPEDS_data$Name, 
