@@ -14,7 +14,6 @@ ui <- fluidPage(
     # Sidebar panel for inputs ----
     sidebarPanel(
       
-      
       # Input: SAT Slider 
       sliderInput("n",
                   "SAT Score",
@@ -43,21 +42,6 @@ ui <- fluidPage(
       tabsetPanel(type = "tabs",
                   tabPanel("Search by Your Stats",
                      numericInput(
-
-                         inputId = "statsinput",
-                         label = "Enter SAT",
-                          value = "0",
-                          min = "0",
-                          max = "1600",
-                          step = 10),
-                     
-                     actionButton("submit","Submit Score", icon("submit"), width = NULL),
-                    
-                     tableOutput("schoolTable")
-                    ),
-                          
-                           
-
                          inputId = "statsInput",
                          label = "Enter SAT to see compatible schools",
                          value = "0",
@@ -68,7 +52,7 @@ ui <- fluidPage(
                      actionButton("submit","Submit Score", icon("submit"), width = NULL),
                     
 
-                           DT::dataTableOutput("schooltable")
+                     DT::dataTableOutput("schooltable")
                         ),
                   
 
@@ -127,12 +111,7 @@ ui <- fluidPage(
                            actionButton("goButton", "Compare"),
 
                            
-                           plotOutput('selectInput')
-                           
-                           )
-      ))))
-
-
+                           plotOutput('selectInput'),
                            
                            plotOutput("plot", height = 300,
                                       click = clickOpts(id = "plot_click"),
@@ -143,29 +122,8 @@ ui <- fluidPage(
                                   tableOutput("plot_clickedpoints")
                                   )
                              
-        )
-      )
-    ))
+        ))))
 
    
                           
-<<<<<<< HEAD
-                           column(width = 4,
-                                  plotOutput("plot", height = 300,
-                                      click = clickOpts(id = "plot_click"),
-                                      hover = hoverOpts(id = "plot_hover", delayType = "throttle"),
-                                      brush = brushOpts(id = "plot_brush")
-                                  ),
-                                  h4("Clicked points"),
-                                  tableOutput("plot_clickedpoints")
-                                  ),
-                           column(width = 4,
-                                  verbatimTextOutput("plot_clickinfo"),
-                                  )
-                     
-                  )))))
 
-=======
-                         
-    
->>>>>>> b43659f8d7999564ffdc4c6cc1905d054a64d9f4
