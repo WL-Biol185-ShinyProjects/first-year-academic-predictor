@@ -64,48 +64,8 @@ function(input, output, session) {
     output$regionsat75th <- renderPlot()
     
     output$regiontuition <- renderPlot()
-
-
-    
-<<<<<<< HEAD
-    
-    
-    
-    output$Target_Schools <- renderTable(IPEDS_data_2 %>%
-                                        filter(input$statsinput >= `Total SAT 25th Percentile`))
   
-    output$schoolTable <- renderTable(IPEDS_data_2$`Total SAT 75th Percentile`)
     
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-=======
-
->>>>>>> b43659f8d7999564ffdc4c6cc1905d054a64d9f4
 
      #Compare
  data <- reactive({
@@ -117,17 +77,14 @@ function(input, output, session) {
     output$compareoutput4 <- renderPrint(input$compareinput4)
     output$compareoutput5 <- renderPrint(input$compareinput5)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   
   }
-=======
+
 
   data <- reactive({
-=======
->>>>>>> b43659f8d7999564ffdc4c6cc1905d054a64d9f4
+
     input$newplot
-    IPEDS_data_2 + rnorm(nrow(IPEDS_data_2))
+    IPEDS_data_2 + rnorm(nrow(IPEDS_data_2)) })
 
     output$plot <- renderPlot({
       input$goButton
