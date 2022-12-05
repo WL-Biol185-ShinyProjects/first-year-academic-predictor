@@ -70,9 +70,10 @@ function(input, output, session) {
     
     
     output$Target_Schools <- renderTable(IPEDS_data_2 %>%
-                                        filter(input$statsinput >= `Total SAT 25th Percentile`))
+                                        filter(input$statsinput >= `Total SAT 25th Percentile`),
   
-    output$schoolTable <- renderTable(IPEDS_data_2$`Total SAT 75th Percentile`)
+    output$schoolTable <- renderTable(IPEDS_data_2$`Total SAT 75th Percentile`),
+    )
     
 
  
@@ -125,18 +126,15 @@ function(input, output, session) {
                               color = IPEDS_data$`Control of institution`))
 
     output$comparecolleges <- renderPlot({
-      ggplot2::aes(IPEDS_data$Name,
+       ggplot2::aes(IPEDS_data$Name,
                    IPEDS_data$`Tuition and fees, 2013-14`, 
-                   color = IPEDS_data$`Control of institution`)
+                   color = IPEDS_data$`Control of institution`,
   
     output$click_info <- renderPrint({
-      nearPoints(IPEDS_data_2, input$plot_clickedpoints, addDist = TRUE)
+      nearPoints(IPEDS_data, input$plot_clickedpoints, addDist = TRUE)
+})
+)
 })
 })
-}
-  
-  output$plot_clickedpoints <- renderTable({
-    IPEDS_data_2 <- nearPoints(data, input$plot_click, "Name", "Tuition and fees, 2013-14")
- })
- ))
+)
 }
