@@ -6,16 +6,18 @@ function(input, output, session) {
   
 #Tabs 
   #Stats 
-      output$schooltable <- DT::renderDataTable(filter(IPEDS_data_2, `Total SAT 25th Percentile` + 50 <= input$statsInput, `Total SAT 75th Percentile` - 50 >= input$statsInput),
-                                                options= list(scrollX= TRUE),
-                                                rownames= FALSE)
+    output$schooltable <- DT::renderDataTable(
+      filter(IPEDS_data_2, `Total SAT 25th Percentile` + 50 <= input$statsInput, `Total SAT 75th Percentile` - 50 >= input$statsInput),
+      options= list(scrollX= TRUE),
+      rownames= FALSE
+    )
       
-
   
   #Explore 
     output$searchtable <-  DT::renderDataTable(
       search_by_df[, input$searchschool], 
-      pageLength = 1)
+      pageLength = 1
+    )
 
     output$search_by_map <- renderLeaflet({
       IPEDS_data_2 %>%
@@ -25,7 +27,8 @@ function(input, output, session) {
         setView(lng = as.numeric(IPEDS_data_2$`Longitude location of institution`), 
                 lat = as.numeric(IPEDS_data_2$`Latitude location of institution`), 
                 zoom = 12) %>%
-        addMarkers(label = IPEDS_data_2$Name)})
+        addMarkers(label = IPEDS_data_2$Name)
+    })
     
     output$stateenrollment <- renderPlot(
       IPEDS_data %>%
@@ -157,7 +160,4 @@ function(input, output, session) {
   
     }
  
-
-    
->>>>>>> 96d2a3f87e8e874c7f3f294026e8a582ffbc5518
 
