@@ -1,6 +1,7 @@
 library(shiny)
 library(leaflet)
 library(tidyverse)
+library(ggplot2)
 
 function(input, output, session) {
   
@@ -64,57 +65,78 @@ function(input, output, session) {
     output$regionsat75th <- renderPlot()
     
     output$regiontuition <- renderPlot()
-  
-    
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
      #Compare
  data <- reactive({
-         updateSelectizeInput(session, "header_input", label = "Area of Interest", choices = colnames(IPEDS_data_2), server = TRUE)
-   
-    output$compareoutput1 <- renderPrint(input$compareinput1)
-    output$compareoutput2 <- renderPrint(input$compareinput2)
-    output$compareoutput3 <- renderPrint(input$compareinput3)
-    output$compareoutput4 <- renderPrint(input$compareinput4)
-    output$compareoutput5 <- renderPrint(input$compareinput5)
-
-  
-  }
-
-
-  data <- reactive({
-
-    input$newplot
-    IPEDS_data_2 + rnorm(nrow(IPEDS_data_2)) })
-
-    output$plot <- renderPlot({
-      input$goButton
-      hist(IPEDS_data_2, input$header_input, xlab = input$header_input, main=input$data_input, res = 96)
-    })
-
-  output$plot <- renderPlot({
-    plot(IPEDS_data$`Tuition and fees, 2013-14`, IPEDS_data$`Percent of freshmen receiving any financial aid`, color = 'Name')
-  })
-  
-  output$plot_clickinfo <- renderPrint({
-    cat("Click:\n")
-    str(input$plot_click)
-  })
-  
-  output$plot_hoverinfo <- renderPrint({
-    cat("Hover (throttled):\n")
-    str(input$plot_hover)
-  })
-  
-  output$plot_clickedpoints <- renderTable({
-    IPEDS_data_2 <- nearPoints(data, input$plot_click, "Name", "Tuition and fees, 2013-14")
-    if (nrow(IPEDS_data_2) == 0)
-      return()
-    res
-  })
-      hist(IPEDS_data_2, input$header_input, xlab = input$header_input, main=input$data_input, res = 96)
- }
-
-  
-    
- 
-
+         updateSelectizeInput(session, "header_input", label = "Area of Interest", choices = colnames(IPEDS_data_2), server = TRUE)}
+         
+   output$plot <- renderPlot({
+     ggplot(IPEDS_data, aes(IPEDS_data$Name,
+                            IPEDS_data$`Tuition and fees, 2013-14`,
+                            color= IPEDS_data$`Control of institution`))
+     
+     output$comparecolleges <- renderPlot({
+       ggplot2::aes(IPEDS_data$Name,
+                    IPEDS_data$`Tuition and fees, 2013-14`,
+                    color= IPEDS_data$`Control of institution`,
+                    
+      output$click_info <- renderPrint({
+        newPoints(IPEDS_data, input$plot_clickedpoints, addDist= TRUE)
+      })
+      )
+     })
+   })
+   )
+   }     
+         
+        
