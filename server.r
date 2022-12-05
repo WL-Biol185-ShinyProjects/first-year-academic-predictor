@@ -112,9 +112,9 @@ function(input, output, session) {
     res
   })
       hist(IPEDS_data_2, input$header_input, xlab = input$header_input, main=input$data_input, res = 96)
- })
+ }
 
   
-    }
+    
  
 
