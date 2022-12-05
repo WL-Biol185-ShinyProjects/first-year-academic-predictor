@@ -83,7 +83,7 @@ ui <- fluidPage(
                 
                            selectInput(
                              inputId = "exploreregion", 
-                             label = "Explore by State", 
+                             label = "Explore by Region", 
                              choices = IPEDS_data_2$`Geographic region`,
                              multiple = FALSE), 
                 
