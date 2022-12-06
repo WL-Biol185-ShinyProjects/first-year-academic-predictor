@@ -853,6 +853,7 @@
       "description": {
         "Package": "dtplyr",
         "Title": "Data Table Back-End for 'dplyr'",
+<<<<<<< HEAD
         "Version": "1.1.0",
         "Authors@R": "\n    c(person(given = \"Hadley\",\n             family = \"Wickham\",\n             role = c(\"cre\", \"aut\"),\n             email = \"hadley@rstudio.com\"),\n      person(given = \"RStudio\",\n             role = \"cph\"))",
         "Description": "Provides a data.table backend for 'dplyr'. The goal\n    of 'dtplyr' is to allow you to write 'dplyr' code that is\n    automatically translated to the equivalent, but usually much faster,\n    data.table code.",
@@ -874,6 +875,29 @@
         "Repository": "CRAN",
         "Date/Publication": "2021-02-20 01:50:05 UTC",
         "Built": "R 4.1.2; ; 2021-11-11 16:16:54 UTC; unix"
+=======
+        "Version": "1.2.2",
+        "Authors@R": "c(\n    person(\"Hadley\", \"Wickham\", , \"hadley@rstudio.com\", role = c(\"cre\", \"aut\")),\n    person(\"Maximilian\", \"Girlich\", role = \"aut\"),\n    person(\"Mark\", \"Fairbanks\", role = \"aut\"),\n    person(\"Ryan\", \"Dickerson\", role = \"aut\"),\n    person(\"RStudio\", role = c(\"cph\", \"fnd\"))\n  )",
+        "Description": "Provides a data.table backend for 'dplyr'. The goal of\n    'dtplyr' is to allow you to write 'dplyr' code that is automatically\n    translated to the equivalent, but usually much faster, data.table\n    code.",
+        "License": "MIT + file LICENSE",
+        "URL": "https://dtplyr.tidyverse.org, https://github.com/tidyverse/dtplyr",
+        "BugReports": "https://github.com/tidyverse/dtplyr/issues",
+        "Depends": "R (>= 3.3)",
+        "Imports": "crayon, data.table (>= 1.13.0), dplyr (>= 1.0.3), ellipsis,\nglue, lifecycle, rlang, tibble, tidyselect, vctrs",
+        "Suggests": "bench, covr, knitr, rmarkdown, testthat (>= 3.0.0), tidyr (>=\n1.1.0)",
+        "VignetteBuilder": "knitr",
+        "Config/Needs/website": "tidyverse/tidytemplate",
+        "Config/testthat/edition": "3",
+        "Encoding": "UTF-8",
+        "RoxygenNote": "7.2.1",
+        "NeedsCompilation": "no",
+        "Packaged": "2022-08-20 12:54:11 UTC; hadleywickham",
+        "Author": "Hadley Wickham [cre, aut],\n  Maximilian Girlich [aut],\n  Mark Fairbanks [aut],\n  Ryan Dickerson [aut],\n  RStudio [cph, fnd]",
+        "Maintainer": "Hadley Wickham <hadley@rstudio.com>",
+        "Repository": "CRAN",
+        "Date/Publication": "2022-08-20 13:20:02 UTC",
+        "Built": "R 4.1.2; ; 2022-09-14 19:31:24 UTC; unix"
+>>>>>>> 0b43b8568229cb7eac5cfc6bf39cee5217b4f030
       }
     },
     "ellipsis": {
@@ -1786,7 +1810,11 @@
         "Maintainer": "Joe Cheng <joe@rstudio.com>",
         "Repository": "CRAN",
         "Date/Publication": "2022-03-23 23:40:02 UTC",
+<<<<<<< HEAD
         "Built": "R 4.1.2; ; 2022-10-26 19:10:56 UTC; unix"
+=======
+        "Built": "R 4.1.2; ; 2022-10-12 18:58:33 UTC; unix"
+>>>>>>> 0b43b8568229cb7eac5cfc6bf39cee5217b4f030
       }
     },
     "leaflet.providers": {
@@ -2384,7 +2412,11 @@
         "Maintainer": "Robert J. Hijmans <r.hijmans@gmail.com>",
         "Repository": "CRAN",
         "Date/Publication": "2022-09-18 20:26:04 UTC",
+<<<<<<< HEAD
         "Built": "R 4.1.2; x86_64-pc-linux-gnu; 2022-10-26 19:08:42 UTC; unix"
+=======
+        "Built": "R 4.1.2; x86_64-pc-linux-gnu; 2022-10-12 18:55:34 UTC; unix"
+>>>>>>> 0b43b8568229cb7eac5cfc6bf39cee5217b4f030
       }
     },
     "readr": {
@@ -2417,7 +2449,11 @@
         "Maintainer": "Jennifer Bryan <jenny@rstudio.com>",
         "Repository": "CRAN",
         "Date/Publication": "2022-01-30 22:30:02 UTC",
+<<<<<<< HEAD
         "Built": "R 4.1.2; x86_64-pc-linux-gnu; 2022-09-16 21:53:35 UTC; unix"
+=======
+        "Built": "R 4.1.2; x86_64-pc-linux-gnu; 2022-09-14 19:31:29 UTC; unix"
+>>>>>>> 0b43b8568229cb7eac5cfc6bf39cee5217b4f030
       }
     },
     "readxl": {
@@ -2919,7 +2955,11 @@
         "Author": "Robert J. Hijmans [cre, aut] (<https://orcid.org/0000-0001-5872-2872>),\n  Roger Bivand [ctb] (<https://orcid.org/0000-0003-2392-6140>),\n  Karl Forner [ctb],\n  Jeroen Ooms [ctb] (<https://orcid.org/0000-0002-4035-0289>),\n  Edzer Pebesma [ctb] (<https://orcid.org/0000-0001-8049-7069>),\n  Michael D. Sumner [ctb]",
         "Repository": "CRAN",
         "Date/Publication": "2022-09-10 22:10:02 UTC",
+<<<<<<< HEAD
         "Built": "R 4.1.2; x86_64-pc-linux-gnu; 2022-10-26 19:01:50 UTC; unix"
+=======
+        "Built": "R 4.1.2; x86_64-pc-linux-gnu; 2022-10-12 18:46:32 UTC; unix"
+>>>>>>> 0b43b8568229cb7eac5cfc6bf39cee5217b4f030
       }
     },
     "tibble": {
@@ -3023,13 +3063,19 @@
       "description": {
         "Package": "tidyverse",
         "Title": "Easily Install and Load the 'Tidyverse'",
+<<<<<<< HEAD
         "Version": "1.3.1",
         "Authors@R": "\n    c(person(given = \"Hadley\",\n             family = \"Wickham\",\n             role = c(\"aut\", \"cre\"),\n             email = \"hadley@rstudio.com\"),\n      person(given = \"RStudio\",\n             role = c(\"cph\", \"fnd\")))",
+=======
+        "Version": "1.3.2",
+        "Authors@R": "c(\n    person(\"Hadley\", \"Wickham\", , \"hadley@rstudio.com\", role = c(\"aut\", \"cre\")),\n    person(\"RStudio\", role = c(\"cph\", \"fnd\"))\n  )",
+>>>>>>> 0b43b8568229cb7eac5cfc6bf39cee5217b4f030
         "Description": "The 'tidyverse' is a set of packages that work in harmony\n    because they share common data representations and 'API' design. This\n    package is designed to make it easy to install and load multiple\n    'tidyverse' packages in a single step. Learn more about the\n    'tidyverse' at <https://www.tidyverse.org>.",
         "License": "MIT + file LICENSE",
         "URL": "https://tidyverse.tidyverse.org,\nhttps://github.com/tidyverse/tidyverse",
         "BugReports": "https://github.com/tidyverse/tidyverse/issues",
         "Depends": "R (>= 3.3)",
+<<<<<<< HEAD
         "Imports": "broom (>= 0.7.6), cli (>= 2.4.0), crayon (>= 1.4.1), dbplyr\n(>= 2.1.1), dplyr (>= 1.0.5), dtplyr (>= 1.1.0), forcats (>=\n0.5.1), googledrive (>= 1.0.1), googlesheets4 (>= 0.3.0),\nggplot2 (>= 3.3.3), haven (>= 2.3.1), hms (>= 1.0.0), httr (>=\n1.4.2), jsonlite (>= 1.7.2), lubridate (>= 1.7.10), magrittr\n(>= 2.0.1), modelr (>= 0.1.8), pillar (>= 1.6.0), purrr (>=\n0.3.4), readr (>= 1.4.0), readxl (>= 1.3.1), reprex (>= 2.0.0),\nrlang (>= 0.4.10), rstudioapi (>= 0.13), rvest (>= 1.0.0),\nstringr (>= 1.4.0), tibble (>= 3.1.0), tidyr (>= 1.1.3), xml2\n(>= 1.3.2)",
         "Suggests": "covr, feather, glue, knitr, rmarkdown, testthat",
         "VignetteBuilder": "knitr",
@@ -3043,6 +3089,21 @@
         "Repository": "CRAN",
         "Date/Publication": "2021-04-15 13:20:02 UTC",
         "Built": "R 4.1.2; ; 2021-11-11 19:58:49 UTC; unix"
+=======
+        "Imports": "broom (>= 0.7.10), cli (>= 3.1.0), crayon (>= 1.4.2), dbplyr\n(>= 2.1.1), dplyr (>= 1.0.7), dtplyr (>= 1.2.0), forcats (>=\n0.5.1), ggplot2 (>= 3.3.5), googledrive (>= 2.0.0),\ngooglesheets4 (>= 1.0.0), haven (>= 2.4.3), hms (>= 1.1.1),\nhttr (>= 1.4.2), jsonlite (>= 1.7.2), lubridate (>= 1.8.0),\nmagrittr (>= 2.0.1), modelr (>= 0.1.8), pillar (>= 1.6.4),\npurrr (>= 0.3.4), readr (>= 2.1.1), readxl (>= 1.3.1), reprex\n(>= 2.0.1), rlang (>= 0.4.12), rstudioapi (>= 0.13), rvest (>=\n1.0.2), stringr (>= 1.4.0), tibble (>= 3.1.6), tidyr (>=\n1.1.4), xml2 (>= 1.3.3)",
+        "Suggests": "covr, feather, glue, knitr, rmarkdown, testthat",
+        "VignetteBuilder": "knitr",
+        "Config/Needs/website": "tidyverse/tidytemplate",
+        "Encoding": "UTF-8",
+        "RoxygenNote": "7.2.0",
+        "NeedsCompilation": "no",
+        "Packaged": "2022-07-06 18:53:11 UTC; hadleywickham",
+        "Author": "Hadley Wickham [aut, cre],\n  RStudio [cph, fnd]",
+        "Maintainer": "Hadley Wickham <hadley@rstudio.com>",
+        "Repository": "CRAN",
+        "Date/Publication": "2022-07-18 08:50:02 UTC",
+        "Built": "R 4.1.2; ; 2022-09-14 19:32:23 UTC; unix"
+>>>>>>> 0b43b8568229cb7eac5cfc6bf39cee5217b4f030
       }
     },
     "tinytex": {
@@ -3329,10 +3390,17 @@
       "description": {
         "Package": "xml2",
         "Title": "Parse XML",
+<<<<<<< HEAD
         "Version": "1.3.2",
         "Authors@R": "\n    c(person(given = \"Hadley\",\n             family = \"Wickham\",\n             role = \"aut\",\n             email = \"hadley@rstudio.com\"),\n      person(given = \"Jim\",\n             family = \"Hester\",\n             role = c(\"aut\", \"cre\"),\n             email = \"jim.hester@rstudio.com\"),\n      person(given = \"Jeroen\",\n             family = \"Ooms\",\n             role = \"aut\"),\n      person(given = \"RStudio\",\n             role = \"cph\"),\n      person(given = \"R Foundation\",\n             role = \"ctb\",\n             comment = \"Copy of R-project homepage cached as example\"))",
         "Description": "Work with XML files using a simple, consistent\n    interface. Built on top of the 'libxml2' C library.",
         "License": "GPL (>= 2)",
+=======
+        "Version": "1.3.3",
+        "Authors@R": "\n    c(person(given = \"Hadley\",\n             family = \"Wickham\",\n             role = c(\"aut\", \"cre\"),\n             email = \"hadley@rstudio.com\"),\n      person(given = \"Jim\",\n             family = \"Hester\",\n             role = \"aut\"),\n      person(given = \"Jeroen\",\n             family = \"Ooms\",\n             role = \"aut\"),\n      person(given = \"RStudio\",\n             role = \"cph\"),\n      person(given = \"R Foundation\",\n             role = \"ctb\",\n             comment = \"Copy of R-project homepage cached as example\"))",
+        "Description": "Work with XML files using a simple, consistent\n    interface. Built on top of the 'libxml2' C library.",
+        "License": "MIT + file LICENSE",
+>>>>>>> 0b43b8568229cb7eac5cfc6bf39cee5217b4f030
         "URL": "https://xml2.r-lib.org/, https://github.com/r-lib/xml2",
         "BugReports": "https://github.com/r-lib/xml2/issues",
         "Depends": "R (>= 3.1.0)",
@@ -3340,6 +3408,7 @@
         "Suggests": "covr, curl, httr, knitr, magrittr, mockery, rmarkdown,\ntestthat (>= 2.1.0)",
         "VignetteBuilder": "knitr",
         "Encoding": "UTF-8",
+<<<<<<< HEAD
         "RoxygenNote": "7.1.0",
         "SystemRequirements": "libxml2: libxml2-dev (deb), libxml2-devel (rpm)",
         "Collate": "'S4.R' 'as_list.R' 'xml_parse.R' 'as_xml_document.R'\n'classes.R' 'init.R' 'paths.R' 'utils.R' 'xml_attr.R'\n'xml_children.R' 'xml_find.R' 'xml_modify.R' 'xml_name.R'\n'xml_namespaces.R' 'xml_path.R' 'xml_schema.R'\n'xml_serialize.R' 'xml_structure.R' 'xml_text.R' 'xml_type.R'\n'xml_url.R' 'xml_write.R' 'zzz.R'",
@@ -3350,6 +3419,18 @@
         "Repository": "CRAN",
         "Date/Publication": "2020-04-23 22:00:03 UTC",
         "Built": "R 4.1.2; x86_64-pc-linux-gnu; 2021-11-11 18:07:36 UTC; unix"
+=======
+        "RoxygenNote": "7.1.1",
+        "SystemRequirements": "libxml2: libxml2-dev (deb), libxml2-devel (rpm)",
+        "Collate": "'S4.R' 'as_list.R' 'xml_parse.R' 'as_xml_document.R'\n'classes.R' 'init.R' 'paths.R' 'utils.R' 'xml_attr.R'\n'xml_children.R' 'xml_find.R' 'xml_modify.R' 'xml_name.R'\n'xml_namespaces.R' 'xml_path.R' 'xml_schema.R'\n'xml_serialize.R' 'xml_structure.R' 'xml_text.R' 'xml_type.R'\n'xml_url.R' 'xml_write.R' 'zzz.R'",
+        "NeedsCompilation": "yes",
+        "Packaged": "2021-11-29 17:55:43 UTC; jhester",
+        "Author": "Hadley Wickham [aut, cre],\n  Jim Hester [aut],\n  Jeroen Ooms [aut],\n  RStudio [cph],\n  R Foundation [ctb] (Copy of R-project homepage cached as example)",
+        "Maintainer": "Hadley Wickham <hadley@rstudio.com>",
+        "Repository": "CRAN",
+        "Date/Publication": "2021-11-30 14:40:02 UTC",
+        "Built": "R 4.1.2; x86_64-pc-linux-gnu; 2022-09-14 19:32:16 UTC; unix"
+>>>>>>> 0b43b8568229cb7eac5cfc6bf39cee5217b4f030
       }
     },
     "xtable": {
@@ -3402,6 +3483,7 @@
     }
   },
   "files": {
+<<<<<<< HEAD
     "chloropleth-example/.git/COMMIT_EDITMSG": {
       "checksum": "aa1066d729fce2bb8798336cc1007bae"
     },
@@ -3570,6 +3652,8 @@
     "chloropleth-example/states.geo.json": {
       "checksum": "e9059ec348f3a4889d5c5f547137853f"
     },
+=======
+>>>>>>> 0b43b8568229cb7eac5cfc6bf39cee5217b4f030
     "datasets.RData": {
       "checksum": "88dc647f26ed16771a9382815034ea97"
     },
@@ -3592,10 +3676,17 @@
       "checksum": "5bd5ad2e34480d750ddab88b6e393bd2"
     },
     "server.r": {
+<<<<<<< HEAD
       "checksum": "3c515b9f196dd52064b48d1520fef5a6"
     },
     "ui.r": {
       "checksum": "c248da6449cab578cd6d92eac84dc4f9"
+=======
+      "checksum": "b512d925b63aa153047a34aecde6f2f3"
+    },
+    "ui.r": {
+      "checksum": "35a19cb3bf3e9d9b2f1c8fc0b927bde5"
+>>>>>>> 0b43b8568229cb7eac5cfc6bf39cee5217b4f030
     }
   },
   "users": null

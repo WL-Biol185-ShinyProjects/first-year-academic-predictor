@@ -7,43 +7,29 @@ library(ggplot2)
 ui <- fluidPage(
   
   # App title ----
-  titlePanel("College Match: SAT and GPA"),
-    
-    mainPanel(
+  headerPanel("Find Your Best College Match", windowTitle = "Find Your Best College Match"),
+  
       
       # Output: Tabset w/ plot, summary, and table ----
       tabsetPanel(type = "tabs",
+
                   tabPanel("Search by Your Stats"),
-                     numericInput("statsinput",
-                         "Enter SAT",
-                          value = "0",
-                          min = "0",
-                          max = "1600",
-                          step = 10),
-                     
-                     actionButton("submit","Submit Score", icon("submit"), width = NULL),
-                    
-                     tableOutput("schoolTable")
-                      ),
-                        "statsInput",
-                        "Enter SAT to see compatible schools",
-                         value = "0",
-                         min = "0",
-                         max = "1600",
-                         step= 10),
+                     numericInput(
+                       inputId = "statsInput",
+                        label = "Enter SAT to see compatible schools",
+                        value = "0",
+                        min = "0",
+                        max = "1600",
+                        step= 10),
+                        actionButton("submit","Submit Score", icon("submit"), width = NULL),
+                        DT::dataTableOutput("schooltable")
+                        ),
 
-                     actionButton("submit","Submit Score", icon("submit"), width = NULL),
-                    
-
-                           DT::dataTableOutput("schooltable")
-                        )
-                  
-
-         tabPanel("Explore",
-                           selectizeInput("searchschool", 
-                                          "Explore by School", 
-                                          choices = as.list(IPEDS_data_2$Name), 
-                                          multiple = FALSE),
+                   tabPanel("Explore",
+                      selectizeInput("searchschool", 
+                                     "Explore by School", 
+                                      choices = as.list(IPEDS_data_2$Name), 
+                                      multiple = FALSE),
                              
                            DT::dataTableOutput("searchtable"), 
                 
@@ -76,23 +62,25 @@ ui <- fluidPage(
                            plotOutput("regionsat75th"), 
                             
                            plotOutput("regiontuition"), 
-                    )
+                    ),
       
       
                   tabPanel("Compare Colleges", 
-                         
-                              selectizeInput('compareinput', 'Select Schools', IPEDS_data$Name, multiple=TRUE),
-                           
-                              actionButton("goButton", "Compare"),
-                              
-                  plotOutput("comparecolleges", width = "100%", height = "400px",
-                            click = clickOpts(id = "plot_clickedpoints", clip = TRUE),
-                            
-                  fluidRow(column
-                           (width = 6, h4("Points Selected"),
+
+                           selectizeInput("header_input", "Select Schools", IPEDS_data$Name, multiple=TRUE),
+
+                           actionButton("goButton", "Compare"),
+
+                           plotOutput("comparecolleges", width = "100%", height = "400px",
+                                      
+                           click = clickOpts(id = "plot_clickedpoints", clip = TRUE),
+         
+                           fluidRow(column
+                            (width = 6, h4("Points Selected"),
                             verbatimTextOutput("click_info")
                            )
                   )            
        
        )
    )
+)
