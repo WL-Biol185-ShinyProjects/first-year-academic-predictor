@@ -93,7 +93,7 @@ ui <- fluidPage(
                             
                            plotOutput("regionsat75th"), 
                             
-                           plotOutput("regiontuition"), 
+                           plotOutput("regiontuition") 
                     ),
       
       
@@ -120,11 +120,8 @@ ui <- fluidPage(
                                             ),
                                       
                                   h4("Clicked points"),
-                                  tableOutput("plot_clickedpoints")
-                                  ),
+                                  tableOutput("plot_clickedpoints"),
                             
-
-   
                           
                               selectizeInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE),
                            
@@ -139,6 +136,9 @@ ui <- fluidPage(
                            )
                   )            
        
-       )
-   )
-)))
+                  )
+                  )
+      )
+    )
+  )
+)

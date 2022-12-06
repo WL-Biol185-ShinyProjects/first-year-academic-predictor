@@ -10,8 +10,7 @@ function(input, output, session) {
     output$schooltable <- DT::renderDataTable(
       filter(IPEDS_data_2, `Total SAT 25th Percentile` + 50 <= input$statsInput, `Total SAT 75th Percentile` - 50 >= input$statsInput),
       options= list(scrollX= TRUE),
-      rownames= FALSE
-    )
+      rownames= FALSE)
 
     
   #Explore 
@@ -66,7 +65,7 @@ function(input, output, session) {
           ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Total SAT 25th Percentile`)) +
           geom_point()
       )
-    
+
     output$regionsat75th <- renderPlot(
       IPEDS_data_2 %>%
         filter(IPEDS_data_2$`Geographic region` == input$exploreregion) %>%
@@ -80,6 +79,7 @@ function(input, output, session) {
         ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Tuition and fees, 2013-14`)) +
         geom_point()
     )
-    
-    #Compare
-}
+  
+     #Compare
+
+} 
