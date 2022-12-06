@@ -43,11 +43,7 @@ ui <- fluidPage(
       tabsetPanel(type = "tabs",
                   tabPanel("Search by Your Stats",
                      numericInput(
-<<<<<<< HEAD
-                       inputId = "statsInput",
-=======
                          inputId = "statsInput",
->>>>>>> 4c4e1efc1f8d5292827e09fcf9645680ab1eb318
                          label = "Enter SAT to see compatible schools",
                          value = "0",
                          min = "0",
@@ -111,11 +107,11 @@ ui <- fluidPage(
                          
                               selectizeInput('compareinput4', 'School 4', IPEDS_data_2$Name, multiple=FALSE),
                           
-<<<<<<< HEAD
+
 
                            selectizeInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE),
-=======
-                           selectizeInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE),
+
+                    
                            
                            actionButton("goButton", "Compare"),
 
@@ -129,31 +125,10 @@ ui <- fluidPage(
                                       
                                   h4("Clicked points"),
                                   tableOutput("plot_clickedpoints")
-                                  ),
+                                  )
+      ))))
                             
 
    
                           
-                              selectizeInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE),
->>>>>>> 4c4e1efc1f8d5292827e09fcf9645680ab1eb318
-                           
-                           actionButton("goButton", "Compare"),
-
-                              
-                  plotOutput("comparecolleges", width = "100%", height = "400px",
-                            click = clickOpts(id = "plot_clickedpoints", clip = TRUE),
                             
-                  fluidRow(column
-                           (width = 6, h4("Points Selected"),
-                            verbatimTextOutput("click_info")
-                           )
-                  )            
-       
-       )
-   )
-<<<<<<< HEAD
-))))
-
-=======
-)))
->>>>>>> 4c4e1efc1f8d5292827e09fcf9645680ab1eb318
