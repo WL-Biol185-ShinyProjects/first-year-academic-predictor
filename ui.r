@@ -84,7 +84,7 @@ ui <- fluidPage(
                            selectInput(
                              inputId = "exploreregion", 
                              label = "Explore by Region", 
-                             choices = IPEDS_data_2$`Geographic region`,
+                             choices = as.list(IPEDS_data_2$`Geographic region`),
                              multiple = FALSE), 
                 
                            plotOutput("regionenrollment"), 
