@@ -7,7 +7,7 @@ library(ggplot2)
 ui <- fluidPage(
   
   # App title ----
-  titlePanel("College Match: SAT and GPA"),
+  titlePanel("College Match: SAT Score"),
     
     mainPanel(
       
