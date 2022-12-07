@@ -7,7 +7,7 @@ library(ggplot2)
 ui <- fluidPage(
   
   # App title ----
-  titlePanel("College Match: SAT Score"),
+  titlePanel("College Search: SAT Score"),
     
     mainPanel(
       
@@ -30,10 +30,15 @@ ui <- fluidPage(
                   
 
         tabPanel("Explore",
-                selectizeInput("searchschool", 
-                  "Explore by School", 
-                  choices = as.list(IPEDS_data_2$Name), 
-                  multiple = FALSE),
+                 
+                 fluidRow(
+                   h4("Explore by School")
+                 ),
+                
+                 #selectizeInput("searchschool", 
+                  #"Explore by School", 
+                  #choices = as.list(IPEDS_data_2$Name), 
+                  #multiple = FALSE),
                              
                 DT::dataTableOutput("searchtable"), 
                 
