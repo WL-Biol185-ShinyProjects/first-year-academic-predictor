@@ -13,6 +13,7 @@ ui <- fluidPage(
       
       # Output: Tabset w/ plot, summary, and table ----
       tabsetPanel(type = "tabs",
+                  
                   tabPanel("Search by Your Stats",
                      numericInput(
                          inputId = "statsInput",
