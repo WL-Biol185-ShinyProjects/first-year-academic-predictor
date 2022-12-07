@@ -15,8 +15,8 @@ function(input, output, session) {
     
   #Explore 
     output$searchtable <-  DT::renderDataTable(
-      search_by_df[, input$searchschool], 
-      pageLength = 1
+      search_by_df, 
+      options = list(pageLength = 10)
     )
 
     output$search_by_map <- renderLeaflet({
@@ -39,82 +39,47 @@ function(input, output, session) {
     output$statesat25th <- renderPlot(
       IPEDS_data_2 %>%
         filter(IPEDS_data_2$`State abbreviation` == input$explorestate) %>%
-        ggplot(aes(IPEDS_data_2$`Estimated freshman enrollment, full time`, IPEDS_data_2$`Total SAT 25th Percentile`)) +
+        ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Total SAT 25th Percentile`)) +
           geom_point()
     )
     
     output$statesat75th <- renderPlot(
       IPEDS_data_2 %>%
         filter(IPEDS_data_2$`State abbreviation` == input$explorestate) %>%
-        ggplot(aes(IPEDS_data_2$`Estimated freshman enrollment, full time`, IPEDS_data_2$`Total SAT 75th Percentile`)) +
+        ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Total SAT 75th Percentile`)) +
         geom_point()
     )
     
     output$statetuition <- renderPlot(
       IPEDS_data_2 %>%
         filter(IPEDS_data_2$`State abbreviation` == input$explorestate) %>%
-        ggplot(aes(IPEDS_data_2$`Estimated freshman enrollment, full time`, IPEDS_data_2$`Tuition and fees, 2013-14`)) +
+        ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Tuition and fees, 2013-14`)) +
         geom_point()
     )
     
     #output$regionenrollment <- renderPlot()
     
-    #output$regionsat25th <- renderPlot()
-    
-    #output$regionsat75th <- renderPlot()
-    
-    #output$regiontuition <- renderPlot()
+    output$regionsat25th <- renderPlot(
+      IPEDS_data_2 %>%
+        filter(IPEDS_data_2$`Geographic region` == input$exploreregion) %>%
+          ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Total SAT 25th Percentile`)) +
+          geom_point()
+      )
 
-}
+    output$regionsat75th <- renderPlot(
+      IPEDS_data_2 %>%
+        filter(IPEDS_data_2$`Geographic region` == input$exploreregion) %>%
+        ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Total SAT 75th Percentile`)) +
+        geom_point()
+    )
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
+    output$regiontuition <- renderPlot(
+      IPEDS_data_2 %>%
+        filter(IPEDS_data_2$`Geographic region` == input$exploreregion) %>%
+        ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Tuition and fees, 2013-14`)) +
+        geom_point()
+    )
   
      #Compare
- 
+
+} 

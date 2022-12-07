@@ -50,7 +50,7 @@ ui <- fluidPage(
                          max = "1600",
                          step= 10),
 
-                         actionButton("submit","Submit Score", icon("submit"), width = NULL),
+                     actionButton("submit","Submit Score", icon("submit"), width = NULL),
                     
 
                      DT::dataTableOutput("schooltable")
@@ -83,8 +83,8 @@ ui <- fluidPage(
                 
                            selectInput(
                              inputId = "exploreregion", 
-                             label = "Explore by State", 
-                             choices = IPEDS_data_2$`Geographic region`,
+                             label = "Explore by Region", 
+                             choices = as.list(IPEDS_data_2$`Geographic region`),
                              multiple = FALSE), 
                 
                            plotOutput("regionenrollment"), 
@@ -93,7 +93,7 @@ ui <- fluidPage(
                             
                            plotOutput("regionsat75th"), 
                             
-                           plotOutput("regiontuition"), 
+                           plotOutput("regiontuition") 
                     ),
       
       
@@ -106,17 +106,13 @@ ui <- fluidPage(
                               selectizeInput('compareinput3', 'School 3', IPEDS_data_2$Name, multiple=FALSE),
                          
                               selectizeInput('compareinput4', 'School 4', IPEDS_data_2$Name, multiple=FALSE),
-                          
 
-
-                           selectizeInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE),
-
-                    
-                           
-                           actionButton("goButton", "Compare"),
+                              selectizeInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE),
+  
+                                actionButton("goButton", "Compare"),
 
                            
-                           plotOutput('selectInput'),
+                        plotOutput('selectInput'),
                            
                            plotOutput("plot", height = 300,
                                       click = clickOpts(id = "plot_click"),
@@ -124,11 +120,25 @@ ui <- fluidPage(
                                             ),
                                       
                                   h4("Clicked points"),
-                                  tableOutput("plot_clickedpoints")
-                                  )
-      ))))
-                            
+                                  tableOutput("plot_clickedpoints"),
 
-   
-                          
+                              selectizeInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE),
+                           
+                              actionButton("goButton", "Compare"),
+                              
+                  plotOutput("comparecolleges", width = "100%", height = "400px",
+                            click = clickOpts(id = "plot_clickedpoints", clip = TRUE),
                             
+                  fluidRow(column
+                           (width = 6, h4("Points Selected"),
+                            verbatimTextOutput("click_info")
+                           )
+                  )            
+       
+                  )
+                  )
+      )
+    )
+  )
+)
+
