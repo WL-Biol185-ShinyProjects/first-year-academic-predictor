@@ -30,43 +30,69 @@ ui <- fluidPage(
                   
 
         tabPanel("Explore",
-                            selectizeInput("searchschool", 
-                                          "Explore by School", 
-                                          choices = as.list(IPEDS_data_2$Name), 
-                                          multiple = FALSE),
+                selectizeInput("searchschool", 
+                  "Explore by School", 
+                  choices = as.list(IPEDS_data_2$Name), 
+                  multiple = FALSE),
                              
-                           DT::dataTableOutput("searchtable"), 
+                DT::dataTableOutput("searchtable"), 
                 
-                           #leafletOutput("map"),
+                #leafletOutput("map"),
                 
-                           selectInput(
-                             inputId = "explorestate",
-                             label = "Explore by State", 
-                             choices = IPEDS_data_2$`State abbreviation`,
-                             multiple = FALSE), 
+                fluidRow(
+                  column(6, 
+                         selectInput(
+                           inputId = "explorestate",
+                           label = "Explore by State", 
+                           choices = IPEDS_data_2$`State abbreviation`,
+                           multiple = FALSE)
+                  ), 
+                  column(6, 
+                         selectInput(
+                           inputId = "exploreregion", 
+                           label = "Explore by Region", 
+                           choices = as.list(IPEDS_data_2$`Geographic region`),
+                           multiple = FALSE)
+                  )
+                ),
                 
-                           #plotOutput("stateenrollment"), 
+                #fluidRow(
+                  #column(8, 
+                         #plotOutput("stateenrollment")
+                  #), 
+                  #column(8,
+                         #plotOutput("regionenrollment")
+                  #)
+                #),
                 
-                           plotOutput("statesat25th"), 
+                fluidRow(
+                  column(6, 
+                         plotOutput("statesat25th")
+                  ), 
+                  column(6,
+                         plotOutput("regionsat25th")
+                  )
+                ), 
                 
-                           plotOutput("statesat75th"), 
-               
-                           plotOutput("statetuition"), 
+                fluidRow(
+                  column(6, 
+                         plotOutput("statesat75th")
+                  ), 
+                  column(6,
+                         plotOutput("regionsat75th")
+                  )
+                ),
                 
-                           selectInput(
-                             inputId = "exploreregion", 
-                             label = "Explore by Region", 
-                             choices = as.list(IPEDS_data_2$`Geographic region`),
-                             multiple = FALSE), 
-                
-                           #plotOutput("regionenrollment"), 
-                            
-                           plotOutput("regionsat25th"), 
-                            
-                           plotOutput("regionsat75th"), 
-                            
-                           plotOutput("regiontuition") 
-                    ),
+                fluidRow(
+                  column(6, 
+                         plotOutput("statetuition")
+                  ), 
+                  column(6,
+                         plotOutput("regiontuition")
+                  )
+                )
+        ),            
+
       
       
                   tabPanel("Compare Colleges", 
