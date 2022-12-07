@@ -8,34 +8,6 @@ ui <- fluidPage(
   
   # App title ----
   titlePanel("College Match: SAT and GPA"),
-  
-  # Sidebar layout with input and output definitions ----
-  sidebarLayout(
-    
-    # Sidebar panel for inputs ----
-    sidebarPanel(
-      
-      # Input: SAT Slider 
-      sliderInput("n",
-                  "SAT Score",
-                  value = 1250,
-                  min = 0,
-                  max = 1600, 
-                  step = 10),
-      
-      tableOutput(IPEDS_data_2),
-      
-      
-      # Input: GPA Slider 
-      sliderInput("n",
-                  "GPA (unweighted)",
-                  value = 3.5,
-                  min = 0,
-                  max = 4, 
-                  step = 0.01)
-      
-      
-    ),
     
     mainPanel(
       
@@ -65,7 +37,7 @@ ui <- fluidPage(
                              
                            DT::dataTableOutput("searchtable"), 
                 
-                           leafletOutput("map"),
+                           #leafletOutput("map"),
                 
                            selectInput(
                              inputId = "explorestate",
@@ -73,7 +45,7 @@ ui <- fluidPage(
                              choices = IPEDS_data_2$`State abbreviation`,
                              multiple = FALSE), 
                 
-                           plotOutput("stateenrollment"), 
+                           #plotOutput("stateenrollment"), 
                 
                            plotOutput("statesat25th"), 
                 
@@ -87,7 +59,7 @@ ui <- fluidPage(
                              choices = as.list(IPEDS_data_2$`Geographic region`),
                              multiple = FALSE), 
                 
-                           plotOutput("regionenrollment"), 
+                           #plotOutput("regionenrollment"), 
                             
                            plotOutput("regionsat25th"), 
                             
@@ -139,6 +111,5 @@ ui <- fluidPage(
                   )
       )
     )
-  )
 )
 
