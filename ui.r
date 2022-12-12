@@ -93,26 +93,22 @@ ui <- fluidPage(
       
                   tabPanel("Compare Colleges", 
                          
-                              selectizeInput('compareinput1', 'School 1', IPEDS_data_2$Name, multiple=FALSE), 
-                
-                              selectizeInput('compareinput2', 'School 2', IPEDS_data_2$Name, multiple=FALSE),
+                    fluidRow(
                       
-                              selectizeInput('compareinput3', 'School 3', IPEDS_data_2$Name, multiple=FALSE),
-                         
-                              selectizeInput('compareinput4', 'School 4', IPEDS_data_2$Name, multiple=FALSE),
-
-                              selectizeInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE),
-  
-                                actionButton("goButton", "Compare"),
-
-                           fluidRow(
-                             plotOutput("schoolcompare")
+                      column(6,
+                             selectInput(
+                               inputId = "compareschools",
+                               label = "Select Schools to Compare",
+                               choices = as.list(IPEDS_data$Name),
+                               multiple = TRUE),
+                             ),
+                      column(6, plotOutput("schoolcompare"))
+                      )
+                    )
                            )
                                    
        
                   )
                   )
-      )
-    )
 
 

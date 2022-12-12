@@ -44,11 +44,20 @@ function(input, output, session) {
       )
     })
     
-    output$statesat25th <- renderPlot(
+    output$statesat25th <- renderPlotly(
       IPEDS_data_2 %>%
         filter(IPEDS_data_2$`State abbreviation` == input$explorestate) %>%
-        ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Total SAT 25th Percentile`)) +
-        geom_point()
+        plot_ly(
+          type = 'scatter',
+          mode = 'markers',
+          x = ~`Estimated freshman enrollment, full time`,
+          y = ~`Total SAT 25th Percentile`,
+          hovertemplate = paste(
+            "<p><b>" , IPEDS_data_2$Name, "</b></p>" , 
+            "<p>", "Admission Yield =", IPEDS_data_2$`Admissions yield - total`, "</p>" , 
+            "<p>", "SAT 25th Percentile =", IPEDS_data_2$`Total SAT 25th Percentile`, "</p>"
+          )
+        )
     )
     
     output$statesat75th <- renderPlot(
@@ -89,7 +98,7 @@ function(input, output, session) {
      #Compare
     output$schoolcompare <- renderPlot(
       IPEDS_data_2 %>%
-        filter(IPEDS_data_2$Name %>% input$compareinput1, input$compareinput2, input$compareinput3,
+        filter(IPEDS_data_2$Name == input$compareinput1, input$compareinput2, input$compareinput3,
                                     input$compareinput4, input$compareinput5) %>%
         ggplot() + geom_dumbbell(data = IPEDS_data_2, aes(y = Name,
                                                         x = `Total SAT 25th Percentile`,
