@@ -7,6 +7,7 @@ library(dplyr)
 
 
 
+
 function(input, output, session) {
   
 #Tabs 
@@ -50,6 +51,7 @@ function(input, output, session) {
         ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Total SAT 25th Percentile`)) +
         geom_point()
     )
+  
     
     output$exploredata1 <- renderTable({
       brushedPoints(
@@ -137,12 +139,9 @@ function(input, output, session) {
      #Compare
     output$schoolcompare <- renderPlot(
       IPEDS_data_2 %>%
-        filter(IPEDS_data_2$Name %>% input$compareinput1, input$compareinput2, input$compareinput3,
-                                    input$compareinput4, input$compareinput5) %>%
-        ggplot() + geom_dumbbell(data = IPEDS_data_2, aes(y = Name,
-                                                        x = `Total SAT 25th Percentile`,
-                                                        xend = `Total SAT 75th Percentile` ),
-                                                         size = 1.5)
+        filter(IPEDS_data_2$Name == input$compareschools) %>%
+        ggplot() +
+        geom_linerange(aes(y=Name, xmin= `Total SAT 25th Percentile`, xmax= `Total SAT 75th Percentile`))
     )
       
     
