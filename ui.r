@@ -102,7 +102,7 @@ ui <- fluidPage(
                                choices = as.list(IPEDS_data$Name),
                                multiple = TRUE),
                              ),
-                      column(6, plotOutput("schoolcompare"))
+                     plotOutput("schoolcompare")
                       )
                     )
                            )

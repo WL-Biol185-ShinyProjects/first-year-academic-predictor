@@ -93,7 +93,7 @@ function(input, output, session) {
       IPEDS_data_2 %>%
         filter(IPEDS_data_2$Name == input$compareschools) %>%
         ggplot() +
-          geom_linerange(aes(y= Name, xmin= `Total SAT 25th Percentile`, xmax= `Total SAT 75th Percentile`))
+        geom_linerange(aes(y=Name, xmin= `Total SAT 25th Percentile`, xmax= `Total SAT 75th Percentile`))
     )
       
     
