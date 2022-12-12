@@ -13,6 +13,7 @@ ui <- fluidPage(
       
       # Output: Tabset w/ plot, summary, and table ----
       tabsetPanel(type = "tabs",
+                  
                   tabPanel("Search by Your Stats",
                            numericInput(
                              inputId = "statsInput",
@@ -83,7 +84,9 @@ ui <- fluidPage(
                              
                 DT::dataTableOutput("searchtable"), 
                 
-                #leafletOutput("map"),
+                fluidRow(
+                  leafletOutput("map")
+                ),
                 
                 fluidRow(
                   column(6, 
@@ -101,15 +104,6 @@ ui <- fluidPage(
                            multiple = FALSE)
                   )
                 ),
-                
-                #fluidRow(
-                  #column(8, 
-                         #plotOutput("stateenrollment")
-                  #), 
-                  #column(8,
-                         #plotOutput("regionenrollment")
-                  #)
-                #),
                 
                 fluidRow(
                   column(6, 
