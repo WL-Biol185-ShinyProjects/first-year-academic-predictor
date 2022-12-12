@@ -105,33 +105,14 @@ ui <- fluidPage(
   
                                 actionButton("goButton", "Compare"),
 
-                           
-                        plotOutput('selectInput'),
-                           
-                           plotOutput("plot", height = 300,
-                                      click = clickOpts(id = "plot_click"),
-                                      hover = hoverOpts(id = "plot_hover", delayType = "throttle"),
-                                            ),
-                                      
-                                  h4("Clicked points"),
-                                  tableOutput("plot_clickedpoints"),
-
-                              selectizeInput('compareinput5', 'School 5', IPEDS_data_2$Name, multiple=FALSE),
-                           
-                              actionButton("goButton", "Compare"),
-                              
-                  plotOutput("comparecolleges", width = "100%", height = "400px",
-                            click = clickOpts(id = "plot_clickedpoints", clip = TRUE),
-                            
-                  fluidRow(column
-                           (width = 6, h4("Points Selected"),
-                            verbatimTextOutput("click_info")
+                           fluidRow(
+                             plotOutput("schoolcompare")
                            )
-                  )            
+                                   
        
                   )
                   )
       )
     )
-)
+
 

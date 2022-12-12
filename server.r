@@ -2,9 +2,9 @@ library(shiny)
 library(leaflet)
 library(tidyverse)
 library(ggplot2)
-library(plotly)
 library(readr)
 library(dplyr)
+
 
 
 function(input, output, session) {
@@ -13,7 +13,8 @@ function(input, output, session) {
   # Stats
   
     output$schooltable <- DT::renderDataTable(
-      filter(IPEDS_data_2, `Total SAT 25th Percentile` + 50 <= input$statsInput, `Total SAT 75th Percentile` - 50 >= input$statsInput),
+      filter(IPEDS_data_2, `Total SAT 25th Percentile` + 50 <= input$statsInput, 
+                            `Total SAT 75th Percentile` - 50 >= input$statsInput),
       options= list(scrollX= TRUE),
       rownames= FALSE)
 
@@ -85,7 +86,7 @@ function(input, output, session) {
         filter(IPEDS_data_2$`Geographic region` == input$exploreregion) %>%
         ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Total SAT 75th Percentile`)) +
         geom_point()
-    )
+    ) 
     
     output$regiontuition <- renderPlot(
       IPEDS_data_2 %>%
@@ -95,5 +96,16 @@ function(input, output, session) {
     )
   
      #Compare
-
+    output$schoolcompare <- renderPlot(
+      IPEDS_data_2 %>%
+        filter(IPEDS_data_2$Name %>% input$compareinput1, input$compareinput2, input$compareinput3,
+                                    input$compareinput4, input$compareinput5) %>%
+        ggplot() + geom_dumbbell(data = IPEDS_data_2, aes(y = Name,
+                                                        x = `Total SAT 25th Percentile`,
+                                                        xend = `Total SAT 75th Percentile` ),
+                                                         size = 1.5)
+    )
+      
+    
+    
 } 
