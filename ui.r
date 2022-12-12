@@ -40,7 +40,9 @@ ui <- fluidPage(
                              
                 DT::dataTableOutput("searchtable"), 
                 
-                #leafletOutput("map"),
+                fluidRow(
+                  leafletOutput("map")
+                ),
                 
                 fluidRow(
                   column(6, 
@@ -58,15 +60,6 @@ ui <- fluidPage(
                            multiple = FALSE)
                   )
                 ),
-                
-                #fluidRow(
-                  #column(8, 
-                         #plotOutput("stateenrollment")
-                  #), 
-                  #column(8,
-                         #plotOutput("regionenrollment")
-                  #)
-                #),
                 
                 fluidRow(
                   column(6, 
