@@ -23,15 +23,22 @@ function(input, output, session) {
     options = list(pageLength = 10)
   )
   
-  output$search_by_map <- renderLeaflet({
-    IPEDS_data_2 %>%
-      filter(input$exploreschool) %>% 
-      leaflet() %>% 
-      addProviderTiles(providers$Esri.NatGeoWorldMap) %>%
-      setView(lng = as.numeric(IPEDS_data_2$`Longitude location of institution`), 
-              lat = as.numeric(IPEDS_data_2$`Latitude location of institution`), 
-              zoom = 12) %>%
-      addMarkers(label = IPEDS_data_2$Name)
+  output$map <- renderLeaflet({
+    leaflet(IPEDS_data_2) %>%
+      addTiles() %>%
+      setView(lng = -78.024902, lat = 37.926868, zoom = 7) %>%
+      addCircleMarkers(
+        lng = ~`Longitude location of institution`,
+        lat = ~`Latitude location of institution`,
+        label = ~Name,
+        stroke = FALSE,
+        fillOpacity = 0.5,
+        popup = ~paste("<p><b>" , IPEDS_data_2$Name, "</b></p>" , 
+                       "<p>", "Admission Yield =", IPEDS_data_2$`Admissions yield - total`, "</p>" , 
+                       "<p>", "SAT 25th Percentile =", IPEDS_data_2$`Total SAT 25th Percentile`, "</p>",
+                       "<p>", "SAT 75th Percentile =", IPEDS_data_2$`Total SAT 75th Percentile`, "</p>"
+        )
+      )
   })
   
   #output$stateenrollment <- renderPlot(
@@ -134,14 +141,13 @@ function(input, output, session) {
   
   
   #Compare
-  output$distPlot <- renderPlot({
+  output$comparingschools <- renderPlot(
     IPEDS_data %>%
-      filter('Name' %in% input$compareaid)
-      ggplot(IPEDS_data, aes(x = `Total price for in-state students living on campus 2013-14`, 
-                 y = `Total price for out-of-state students living on campus 2013-14`,
-                 color = input$compareaid)) + geom_line()
+      filter(IPEDS_data$`Name` %in% input$compareschools) %>%
+      ggplot(aes(x = `Tuition and fees, 2013-14`, 
+                 y = `Total price for in-state students living on campus 2013-14`)) +
+      geom_point()
+  )
       
-      
-  })
-}
+  }
 

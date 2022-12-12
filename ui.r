@@ -151,16 +151,16 @@ ui <- fluidPage(
     tabPanel("Compare Colleges", 
          
          fluidRow(
+           
            column(6, 
                   selectInput(
-                    inputId = "compareaid",
-                    label = "Select to Compare Aid", 
-                    choices = IPEDS_data_2$Name,
+                    inputId = "compareschools", 
+                    label = "Select Schools to Compare", 
+                    choices = as.list(IPEDS_data$`Name`),
                     multiple = TRUE),
-         
-         fluidRow(
+                  
             column(6, 
-                  plotOutput("distPlot")
+                  plotOutput("comparingschools")
                     ) 
          
 )
@@ -169,7 +169,7 @@ ui <- fluidPage(
       )
     )
 ))
-)
+
 
 
 
