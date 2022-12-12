@@ -7,35 +7,7 @@ library(ggplot2)
 ui <- fluidPage(
   
   # App title ----
-  titlePanel("College Match: SAT and GPA"),
-  
-  # Sidebar layout with input and output definitions ----
-  sidebarLayout(
-    
-    # Sidebar panel for inputs ----
-    sidebarPanel(
-      
-      # Input: SAT Slider 
-      sliderInput("n",
-                  "SAT Score",
-                  value = 1250,
-                  min = 0,
-                  max = 1600, 
-                  step = 10),
-      
-      tableOutput(IPEDS_data_2),
-      
-      
-      # Input: GPA Slider 
-      sliderInput("n",
-                  "GPA (unweighted)",
-                  value = 3.5,
-                  min = 0,
-                  max = 4, 
-                  step = 0.01)
-      
-      
-    ),
+  titlePanel("College Search: SAT Score"),
     
     mainPanel(
       
@@ -57,44 +29,7 @@ ui <- fluidPage(
                   ),
                   
                   
-                  tabPanel("Explore",
-                           selectizeInput("exploreschool", 
-                                          "Explore by School", 
-                                          choices = as.list(IPEDS_data_2$Name), 
-                                          multiple = FALSE),
-                           
-                           DT::dataTableOutput("searchtable"), 
-                           
-                           leafletOutput("map"),
-                           
-                           selectInput(
-                             inputId = "explorestate",
-                             label = "Explore by State", 
-                             choices = IPEDS_data_2$`State abbreviation`,
-                             multiple = FALSE), 
-                           
-                           plotOutput("stateenrollment"), 
-                           
-                           plotOutput("statesat25th"), 
-                           
-                           plotOutput("statesat75th"), 
-                           
-                           plotOutput("statetuition"), 
-                           
-                           selectInput(
-                             inputId = "exploreregion", 
-                             label = "Explore by Region", 
-                             choices = as.list(IPEDS_data_2$`Geographic region`),
-                             multiple = FALSE), 
-                           
-                           plotOutput("regionenrollment"), 
-                           
-                           plotOutput("regionsat25th"), 
-                           
-                           plotOutput("regionsat75th"), 
-                           
-                           plotOutput("regiontuition") 
-                  ),
+            
                   
                   
                   
@@ -119,6 +54,7 @@ ui <- fluidPage(
                   
                   
                   
+          
                   
                   
                   
@@ -134,34 +70,112 @@ ui <- fluidPage(
                   
                   
                   
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  tabPanel("Compare College Aid", 
-                           
-                           selectizeInput("comparecolleges", "Select Schools to Compare",
-                                          IPEDS_data$Name,
-                                          multiple=TRUE),
-                           
-                           actionButton("goButton", "Compare"),
-                   
-                           plotOutput('distPlot'),
-                           
-                           DT::dataTableOutput('comparetable')
-             
-                                               )
-                                      )            
-                                      
-                           )
+        tabPanel("Explore",
+                 
+                 fluidRow(
+                   h4("Explore by School")
+                 ),
+                
+                 #selectizeInput("searchschool", 
+                  #"Explore by School", 
+                  #choices = as.list(IPEDS_data_2$Name), 
+                  #multiple = FALSE),
+                             
+                DT::dataTableOutput("searchtable"), 
+                
+                #leafletOutput("map"),
+                
+                fluidRow(
+                  column(6, 
+                         selectInput(
+                           inputId = "explorestate",
+                           label = "Explore by State", 
+                           choices = IPEDS_data_2$`State abbreviation`,
+                           multiple = FALSE)
+                  ), 
+                  column(6, 
+                         selectInput(
+                           inputId = "exploreregion", 
+                           label = "Explore by Region", 
+                           choices = as.list(IPEDS_data_2$`Geographic region`),
+                           multiple = FALSE)
                   )
+                ),
+                
+                #fluidRow(
+                  #column(8, 
+                         #plotOutput("stateenrollment")
+                  #), 
+                  #column(8,
+                         #plotOutput("regionenrollment")
+                  #)
+                #),
+                
+                fluidRow(
+                  column(6, 
+                         plotOutput("statesat25th")
+                  ), 
+                  column(6,
+                         plotOutput("regionsat25th")
+                  )
+                ), 
+                
+                fluidRow(
+                  column(6, 
+                         plotOutput("statesat75th")
+                  ), 
+                  column(6,
+                         plotOutput("regionsat75th")
+                  )
+                ),
+                
+                fluidRow(
+                  column(6, 
+                         plotOutput("statetuition")
+                  ), 
+                  column(6,
+                         plotOutput("regiontuition")
+                  )
+                )
+        ),            
+  
+     
+        
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    tabPanel("Compare Colleges", 
+         
+         fluidRow(
+           column(6, 
+                  selectInput(
+                    inputId = "compareaid",
+                    label = "Select to Compare Aid", 
+                    choices = IPEDS_data_2$Name,
+                    multiple = TRUE),
+         
+         fluidRow(
+            column(6, 
+                  plotOutput("distPlot")
+                    ) 
+         
+)
+)
+                            
       )
+    )
+))
+)
+
+
+
