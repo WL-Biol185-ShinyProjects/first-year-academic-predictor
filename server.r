@@ -12,9 +12,6 @@ function(input, output, session) {
 #Tabs 
   # Stats
   
-  eventReactive(input$submit, 
-                {runif(input$statsInput)})
-  
     output$schooltable <- DT::renderDataTable(
       filter(IPEDS_data_2, `Total SAT 25th Percentile` + 50 <= input$statsInput, `Total SAT 75th Percentile` - 50 >= input$statsInput),
       options= list(scrollX= TRUE),
