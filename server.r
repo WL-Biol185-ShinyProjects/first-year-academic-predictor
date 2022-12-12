@@ -2,7 +2,6 @@ library(shiny)
 library(leaflet)
 library(tidyverse)
 library(ggplot2)
-library(plotly)
 library(readr)
 library(dplyr)
 
@@ -41,20 +40,11 @@ function(input, output, session) {
       )
     })
     
-    output$statesat25th <- renderPlotly(
+    output$statesat25th <- renderPlot(
       IPEDS_data_2 %>%
         filter(IPEDS_data_2$`State abbreviation` == input$explorestate) %>%
-        plot_ly(
-          type = 'scatter',
-          mode = 'markers',
-          x = ~`Estimated freshman enrollment, full time`,
-          y = ~`Total SAT 25th Percentile`,
-          hovertemplate = paste(
-            "<p><b>" , IPEDS_data_2$Name, "</b></p>" , 
-            "<p>", "Admission Yield =", IPEDS_data_2$`Admissions yield - total`, "</p>" , 
-            "<p>", "SAT 25th Percentile =", IPEDS_data_2$`Total SAT 25th Percentile`, "</p>"
-          )
-        )
+        ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Total SAT 25th Percentile`)) +
+        geom_point()
     )
     
     output$statesat75th <- renderPlot(
