@@ -51,12 +51,28 @@ function(input, output, session) {
         geom_point()
     )
     
+    output$exploredata1 <- renderTable({
+      brushedPoints(
+        exploredf %>%
+          filter(exploredf$`State abbreviation` == input$explorestate), 
+        input$statesat25thbrush
+      )
+    })
+    
     output$statesat75th <- renderPlot(
       IPEDS_data_2 %>%
         filter(IPEDS_data_2$`State abbreviation` == input$explorestate) %>%
         ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Total SAT 75th Percentile`)) +
         geom_point()
     )
+    
+    output$exploredata2 <- renderTable({
+      brushedPoints(
+        exploredf %>%
+          filter(exploredf$`State abbreviation` == input$explorestate), 
+        input$statesat75thbrush
+      )
+    })
     
     output$statetuition <- renderPlot(
       IPEDS_data_2 %>%
@@ -65,12 +81,28 @@ function(input, output, session) {
         geom_point()
     )
     
+    output$exploredata3 <- renderTable({
+      brushedPoints(
+        exploredf %>%
+          filter(exploredf$`State abbreviation` == input$explorestate), 
+        input$statetuitionbrush
+      )
+    })
+      
     output$regionsat25th <- renderPlot(
       IPEDS_data_2 %>%
         filter(IPEDS_data_2$`Geographic region` == input$exploreregion) %>%
           ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Total SAT 25th Percentile`)) +
           geom_point()
       )
+    
+    output$exploredata4 <- renderTable({
+      brushedPoints(
+        exploredf %>%
+          filter(exploredf$`State abbreviation` == input$explorestate), 
+        input$regionsat25thbrush
+      )
+    })
 
     output$regionsat75th <- renderPlot(
       IPEDS_data_2 %>%
@@ -79,12 +111,28 @@ function(input, output, session) {
         geom_point()
     ) 
     
+    output$exploredata5 <- renderTable({
+      brushedPoints(
+        exploredf %>%
+          filter(exploredf$`State abbreviation` == input$explorestate), 
+        input$regionsat75thbrush
+      )
+    })
+    
     output$regiontuition <- renderPlot(
       IPEDS_data_2 %>%
         filter(IPEDS_data_2$`Geographic region` == input$exploreregion) %>%
         ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Tuition and fees, 2013-14`)) +
         geom_point()
     )
+    
+    output$exploredata6 <- renderTable({
+      brushedPoints(
+        exploredf %>%
+          filter(exploredf$`State abbreviation` == input$explorestate), 
+        input$regiontuitionbrush
+      )
+    })
   
      #Compare
     output$schoolcompare <- renderPlot(

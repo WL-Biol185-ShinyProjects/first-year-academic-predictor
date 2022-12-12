@@ -63,28 +63,52 @@ ui <- fluidPage(
                 
                 fluidRow(
                   column(6, 
-                         plotOutput("statesat25th")
+                         plotOutput(
+                           "statesat25th",
+                           brush = "statesat25thbrush"
+                         ), 
+                         tableOutput("exploredata1")
                   ), 
                   column(6,
-                         plotOutput("regionsat25th")
+                         plotOutput(
+                           "regionsat25th", 
+                           brush = "regionsat25thbrush"
+                         ), 
+                         tableOutput("exploredata2")
                   )
                 ), 
                 
                 fluidRow(
                   column(6, 
-                         plotOutput("statesat75th")
+                         plotOutput(
+                           "statesat75th", 
+                           brush = "statesat75thbrush"
+                         ), 
+                         tableOutput("exploredata3")
                   ), 
                   column(6,
-                         plotOutput("regionsat75th")
+                         plotOutput(
+                           "regionsat75th", 
+                           brush = "regionsat75thbrush" 
+                         ), 
+                         tableOutput("exploredata4")
                   )
                 ),
                 
                 fluidRow(
                   column(6, 
-                         plotOutput("statetuition")
+                         plotOutput(
+                           "statetuition", 
+                           brush = "statetuitionbrush"
+                         ), 
+                         tableOutput("exploredata5")
                   ), 
                   column(6,
-                         plotOutput("regiontuition")
+                         plotOutput(
+                           "regiontuition",
+                           brush = "regiontuitionbrush"
+                         ), 
+                         tableOutput("exploredata6")
                   )
                 )
         ),            
