@@ -24,75 +24,75 @@ ui <- fluidPage(
                          step= 10),
                   
                        DT::dataTableOutput("schooltable")
-                        ),
+                          ),
                   
 
         tabPanel("Explore",
                  
                  fluidRow(
                    h4("Explore by School")
-                 ),
+                         ),
                 
                  #selectizeInput("searchschool", 
                   #"Explore by School", 
                   #choices = as.list(IPEDS_data_2$Name), 
                   #multiple = FALSE),
                              
-                DT::dataTableOutput("searchtable"), 
+                 DT::dataTableOutput("searchtable"), 
                 
-                fluidRow(
-                  leafletOutput("map")
-                ),
+                 fluidRow(
+                    leafletOutput("map")
+                 ),
                 
-                fluidRow(
-                  column(6, 
+                 fluidRow(
+                    column(6, 
                          selectInput(
                            inputId = "explorestate",
                            label = "Explore by State", 
                            choices = IPEDS_data_2$`State abbreviation`,
                            multiple = FALSE)
-                  ), 
-                  column(6, 
+                    ), 
+                    column(6, 
                          selectInput(
                            inputId = "exploreregion", 
                            label = "Explore by Region", 
                            choices = as.list(IPEDS_data_2$`Geographic region`),
                            multiple = FALSE)
-                  )
-                ),
+                    )
+                  ),
                 
-                fluidRow(
-                  column(6, 
+                 fluidRow(
+                    column(6, 
                          plotOutput(
                            "statesat25th",
                            brush = "statesat25thbrush"
                          ), 
                          tableOutput("exploredata1")
-                  ), 
-                  column(6,
+                    ), 
+                    column(6,
                          plotOutput(
                            "regionsat25th", 
                            brush = "regionsat25thbrush"
                          ), 
                          tableOutput("exploredata2")
-                  )
-                ), 
+                    )
+                  ), 
                 
-                fluidRow(
-                  column(6, 
+                 fluidRow(
+                    column(6, 
                          plotOutput(
                            "statesat75th", 
                            brush = "statesat75thbrush"
-                         ), 
+                                    ), 
                          tableOutput("exploredata3")
-                  ), 
-                  column(6,
+                    ), 
+                    column(6,
                          plotOutput(
                            "regionsat75th", 
                            brush = "regionsat75thbrush" 
                          ), 
                          tableOutput("exploredata4")
-                  )
+                    )
                 ),
                 
                 fluidRow(
@@ -115,24 +115,23 @@ ui <- fluidPage(
 
       
       
-                  tabPanel("Compare Colleges", 
+        tabPanel("Compare Colleges", 
                          
-                    fluidRow(
-                      
-                      column(6,
-                             selectInput(
-                               inputId = "compareschools",
-                               label = "Select Schools to Compare",
-                               choices = as.list(IPEDS_data$Name),
-                               multiple = TRUE),
-                             ),
-                     plotOutput("schoolcompare")
-                      )
-                    )
-                           )
+                fluidRow(
+                  column(6,
+                         selectInput(
+                            inputId = "compareschools",
+                            label = "Select Schools to Compare",
+                            choices = as.list(IPEDS_data$Name),
+                            multiple = TRUE),
+                  ),
+                     
+                        plotOutput("schoolcompare")
+                )
+            )
+          )
                                    
-       
-                  )
-                  )
+        )
+      )
 
 

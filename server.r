@@ -15,7 +15,7 @@ function(input, output, session) {
   
     output$schooltable <- DT::renderDataTable(
       filter(IPEDS_data_2, `Total SAT 25th Percentile` + 50 <= input$statsInput, 
-                            `Total SAT 75th Percentile` - 50 >= input$statsInput),
+                           `Total SAT 75th Percentile` - 50 >= input$statsInput),
       options= list(scrollX= TRUE),
       rownames= FALSE)
 
@@ -141,7 +141,9 @@ function(input, output, session) {
       IPEDS_data_2 %>%
         filter(IPEDS_data_2$Name == input$compareschools) %>%
         ggplot() +
-        geom_linerange(aes(y=Name, xmin= `Total SAT 25th Percentile`, xmax= `Total SAT 75th Percentile`))
+        geom_linerange(aes(y=Name, xmin= `Total SAT 25th Percentile`, xmax= `Total SAT 75th Percentile`)) +
+        geom_vline(xintercept = input$statsInput) +
+        annotate("text", x= input$statsInput + 8, y= 1, label= "Your SAT score", angle=90)
     )
       
     
