@@ -137,14 +137,14 @@ function(input, output, session) {
     })
   
      #Compare
-    output$schoolcompare <- renderPlot(
+    output$schoolcompare <- renderPlot({
       IPEDS_data_2 %>%
-        filter(IPEDS_data_2$Name == input$compareschools) %>%
-        ggplot() +
-        geom_linerange(aes(y= input$compareschools, xmin= `Total SAT 25th Percentile`, xmax= `Total SAT 75th Percentile`)) +
+        filter(`Name` == input$compareschools) %>%
+        ggplot(aes(y = Name, xmin = `Total SAT 25th Percentile`, xmax = `Total SAT 75th Percentile`)) +
+        geom_linerange() +
         geom_vline(xintercept = input$statsInput) +
         annotate("text", x= input$statsInput + 8, y= 1, label= "Your SAT score", angle=90)
-    )
+    })
       
     
     
