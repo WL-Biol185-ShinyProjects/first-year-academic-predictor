@@ -15,6 +15,7 @@ ui <- fluidPage(
       tabsetPanel(type = "tabs",
                   
                   tabPanel("Search by Your Stats",
+
                            numericInput(
                              inputId = "statsInput",
                              label = "Enter SAT to see compatible schools",
@@ -28,48 +29,18 @@ ui <- fluidPage(
                            
                            DT::dataTableOutput("schooltable")
                   ),
+
+                     numericInput(
+                         inputId = "statsInput",
+                         label = "Enter SAT to see compatible schools",
+                         value = "0",
+                         min = "0",
+                         max = "1600",
+                         step= 10),
                   
-                  
-            
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-          
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
+                       DT::dataTableOutput("schooltable")
+                        ),
+
                   
         tabPanel("Explore",
                  
@@ -132,21 +103,6 @@ ui <- fluidPage(
                   )
                 )
         ),            
-  
-     
-        
-        
-
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
     tabPanel("Compare Colleges", 
          
@@ -158,18 +114,19 @@ ui <- fluidPage(
                     label = "Select Schools to Compare", 
                     choices = as.list(IPEDS_data$`Name`),
                     multiple = TRUE),
+           ),
                   
-            column(6, 
+          column(6, 
                   plotOutput("comparingschools")
-                    ) 
-         
+          ) 
 )
 )
-                            
       )
     )
-))
 
 
+                                   
+       
+          
 
 
