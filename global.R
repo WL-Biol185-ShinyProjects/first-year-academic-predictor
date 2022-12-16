@@ -14,3 +14,5 @@ IPEDS_data_2 <- IPEDS_data_2[!is.na(IPEDS_data_2$`Total SAT 75th Percentile`),]
 IPEDS_data_2 <- IPEDS_data_2[!is.na(IPEDS_data_2$`Tuition and fees, 2013-14`),]
 
 search_by_df <- IPEDS_data_2[, c(2, 8, 9, 19, 12:17)]
+
+exploredf <- IPEDS_data_2[, c(2, 31, 32, 20, 18, 21, 22, 23)]

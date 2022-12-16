@@ -7,6 +7,7 @@ library(dplyr)
 
 
 
+
 function(input, output, session) {
   
   #Tabs 
@@ -20,7 +21,7 @@ function(input, output, session) {
 
     output$schooltable <- DT::renderDataTable(
       filter(IPEDS_data_2, `Total SAT 25th Percentile` + 50 <= input$statsInput, 
-                            `Total SAT 75th Percentile` - 50 >= input$statsInput),
+                           `Total SAT 75th Percentile` - 50 >= input$statsInput),
       options= list(scrollX= TRUE),
       rownames= FALSE)
 
@@ -57,6 +58,15 @@ function(input, output, session) {
         ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Total SAT 25th Percentile`)) +
         geom_point()
     )
+  
+    
+    output$exploredata1 <- renderTable({
+      brushedPoints(
+        exploredf %>%
+          filter(exploredf$`State abbreviation` == input$explorestate), 
+        input$statesat25thbrush
+      )
+    })
     
     output$statesat75th <- renderPlot(
       IPEDS_data_2 %>%
@@ -65,6 +75,14 @@ function(input, output, session) {
         geom_point()
     )
     
+    output$exploredata2 <- renderTable({
+      brushedPoints(
+        exploredf %>%
+          filter(exploredf$`State abbreviation` == input$explorestate), 
+        input$statesat75thbrush
+      )
+    })
+    
     output$statetuition <- renderPlot(
       IPEDS_data_2 %>%
         filter(IPEDS_data_2$`State abbreviation` == input$explorestate) %>%
@@ -72,12 +90,28 @@ function(input, output, session) {
         geom_point()
     )
     
+    output$exploredata3 <- renderTable({
+      brushedPoints(
+        exploredf %>%
+          filter(exploredf$`State abbreviation` == input$explorestate), 
+        input$statetuitionbrush
+      )
+    })
+      
     output$regionsat25th <- renderPlot(
       IPEDS_data_2 %>%
         filter(IPEDS_data_2$`Geographic region` == input$exploreregion) %>%
           ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Total SAT 25th Percentile`)) +
           geom_point()
       )
+    
+    output$exploredata4 <- renderTable({
+      brushedPoints(
+        exploredf %>%
+          filter(exploredf$`State abbreviation` == input$explorestate), 
+        input$regionsat25thbrush
+      )
+    })
 
   
   output$regionsat75th <- renderPlot(
@@ -93,61 +127,6 @@ function(input, output, session) {
       ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Tuition and fees, 2013-14`)) +
       geom_point()
   )
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  #Compare
-  output$comparingschools <- renderPlot(
-    IPEDS_data %>%
-      filter(IPEDS_data$`Name` %in% input$compareschools) %>%
-      ggplot(aes(x = `Tuition and fees, 2013-14`, 
-                 y = `Total price for in-state students living on campus 2013-14`)) +
-      geom_point()
-  )
-      
 
 
     output$regionsat75th <- renderPlot(
@@ -157,15 +136,58 @@ function(input, output, session) {
         geom_point()
     ) 
     
+    output$exploredata5 <- renderTable({
+      brushedPoints(
+        exploredf %>%
+          filter(exploredf$`State abbreviation` == input$explorestate), 
+        input$regionsat75thbrush
+      )
+    })
+    
     output$regiontuition <- renderPlot(
       IPEDS_data_2 %>%
         filter(IPEDS_data_2$`Geographic region` == input$exploreregion) %>%
         ggplot(aes(x = `Estimated freshman enrollment, full time`, y = `Tuition and fees, 2013-14`)) +
         geom_point()
     )
+    
+    output$exploredata6 <- renderTable({
+      brushedPoints(
+        exploredf %>%
+          filter(exploredf$`State abbreviation` == input$explorestate), 
+        input$regiontuitionbrush
+      )
+    })
   
+    
+    
+    
+    
+    
+    
+    
      #Compare
-    output$schoolcompare <- renderPlot(
+    
+    
+    output$comparingschools <- renderPlot({
+      IPEDS_data %>%
+        filter(IPEDS_data$`Name` %in% input$compareschools) %>%
+        ggplot(aes(x = `Tuition and fees, 2013-14`, 
+                   y = `Percent of freshmen receiving any financial aid`)) +
+        geom_point()
+    })
+    
+    output$comparing1 <- renderTable({
+        brushedPoints(
+          exploredf %>%
+            filter(exploredf$`Name` %in% input$compareschools), 
+          input$comparing1brush)
+      })
+      
+  
+    
+    
+    output$schoolcompare <- renderPlot({
       IPEDS_data_2 %>%
         filter(IPEDS_data_2$Name %>% input$compareinput1, input$compareinput2, input$compareinput3,
                                     input$compareinput4, input$compareinput5) %>%
@@ -173,9 +195,6 @@ function(input, output, session) {
                                                         x = `Total SAT 25th Percentile`,
                                                         xend = `Total SAT 75th Percentile` ),
                                                          size = 1.5)
-    )
-      
     
-    
-} 
-
+})
+}
