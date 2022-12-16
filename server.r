@@ -145,4 +145,25 @@ function(input, output, session) {
       geom_vline(xintercept = input$statsInput) +
       annotate("text", x= input$statsInput + 8, y= 1, label= "Your SAT score", angle=90)
   })
+  
+  #Compare
+  output$schoolcompare <- renderPlot({
+    IPEDS_data_2 %>%
+      filter(Name == input$compareschools) %>%
+      ggplot(aes(y= Name, xmin= `Total SAT 25th Percentile`, xmax= `Total SAT 75th Percentile`)) +
+      geom_linerange() +
+      geom_vline(xintercept = input$statsInput) +
+      annotate("text", x= input$statsInput + 8, y= 1, label= "Your SAT score", angle=90)
+  })
+  
+  
+  
+  output$anyaidplot <- renderPlot({
+    IPEDS_data %in%
+      filter(IPEDS_data$Name == input$comparingaid) %in%
+      ggplot(aes(x=`Tuition and fees, 2013-14`, 
+                 y=`Percent of freshmen receiving any financial aid`)) +
+      geom_point()
+  })
+
 }

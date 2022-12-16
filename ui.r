@@ -106,11 +106,43 @@ ui <- fluidPage(
                            ), 
                          ),
                          
-                         plotOutput("schoolcompare")
-                )              
-    ), 
-  ), 
-)
+                         plotOutput("schoolcompare"),
+                         
+                         tabPanel("Compare Colleges", 
+                                  
+                                  fluidRow(
+                                    column(
+                                      6, 
+                                      selectInput(
+                                        inputId = "compareschools", 
+                                        label = "Select Schools to Compare", 
+                                        choices = as.list(IPEDS_data$Name),
+                                        multiple = TRUE),
+                                    ),
+                                  ),
+                                  
+                                  fluidRow(
+                                    column(8,
+                                           selectizeInput(
+                                             inputID = "comparingaid",
+                                             label = "Select Schools for Aid Comparison",
+                                             choices = as.list(IPEDS_data$Name),
+                                             multiple = TRUE),
+                                           
+                                           plotOutput("anyaidplot",
+                                                      brush = "anyaidbrush"),
+                                           tableOutput = "anyaidtable"
+                                           
+                                    ))
+                         )
+                         
+                ) 
+    ) 
+  )
+)              
+    
+  
+
 
 
           
